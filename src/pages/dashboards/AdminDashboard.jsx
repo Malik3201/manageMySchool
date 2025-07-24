@@ -8,6 +8,7 @@ const AdminDashboard = () => {
     <>
       <Button onClick={() => dispatch(logOut())}>Log Out</Button>
       <h1>this is Admin Dashboard</h1>
+      <h2>test conflict</h2>
     </>
   );
 };
