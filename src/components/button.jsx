@@ -1,5 +1,3 @@
-import React from "react";
-
 const Button = ({
   children,
   type = "button",
@@ -24,7 +22,9 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${variants[variant]} ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+      className={`${baseStyles} ${variants[variant]} ${className} ${
+        disabled ? "opacity-50 cursor-not-allowed" : ""
+      }`}
     >
       {children}
     </button>

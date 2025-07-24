@@ -2,14 +2,33 @@ import { useForm } from "react-hook-form";
 import { fetchUsers } from "../../redux/authReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.authReducer);
-  if (isLoggedIn) {
-    navigate("/dashboard");
-  }
+  const { isLoggedIn, userRole } = useSelector((state) => state.authReducer);
+  useEffect(() => {
+    if (isLoggedIn) {
+      switch (userRole) {
+        case "admin":
+          navigate("/admin-dashboard");
+          break;
+        case "student":
+          navigate("/student-dashboard");
+          break;
+        case "teacher":
+          navigate("/teacher-dashboard");
+          break;
+        case "parent":
+          navigate("/parent-dashboard");
+          break;
+        default:
+          console.error("Unknown role");
+          break;
+      }
+    }
+  }, [isLoggedIn, userRole, navigate]);
   const {
     register,
     handleSubmit,
