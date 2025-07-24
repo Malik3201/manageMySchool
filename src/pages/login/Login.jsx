@@ -8,7 +8,7 @@ import Button from "../../components/button";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.authReducer);
+  const { isLoggedIn, } = useSelector((state) => state.authReducer);
 
   const [showPassword, setShowPassword] = useState(false);
 
