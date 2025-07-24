@@ -8,8 +8,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.authReducer);
   if (isLoggedIn) {
-    // navigate("/");
-    console.log("login success");
+    navigate("/dashboard");
   }
   const {
     register,
