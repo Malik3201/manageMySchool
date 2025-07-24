@@ -1,14 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Mrs. Ayesha Khan",
-    "email": "ayesha.khan@smartcampus.edu",
-    "phone": "0300-1234567",
-    "subjects": ["English", "Literature"],
-    "assignedClasses": ["Class 6 - A", "Class 8 - B"],
-    "profileImage": "/images/teachers/ayesha.jpg"
-  },
-  {
     "id": 2,
     "name": "Mr. Imran Qureshi",
     "email": "imran.qureshi@smartcampus.edu",
