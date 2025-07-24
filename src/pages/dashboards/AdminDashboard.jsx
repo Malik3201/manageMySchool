@@ -9,9 +9,9 @@ import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
-import TimeTableSection from "./TimeTableSection";
 import AttendanceManagement from "../../modules/Attendance/AttendanceManagement";
 // import AttendanceManagement from "../../modules/Attendance/AttendanceManagement";
+import TimeTableSection from "../TimeTableSection";
 const AdminDashboard = () => {
   return (
     <>
