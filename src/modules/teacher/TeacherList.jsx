@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Button from "@/components/Button";
-import Table from "@/components/Table";
+import Button from "../../components/Button";
+import Table from "../../components/Table";
 
 const TeacherList = () => {
   const [teachers, setTeachers] = useState([]);
