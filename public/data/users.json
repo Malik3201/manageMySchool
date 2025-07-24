@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Ali Raza",
+    "email": "admin@school.com",
+    "password": "admin123",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "name": "Sara Khan",
+    "email": "teacher1@school.com",
+    "password": "teacher123",
+    "role": "teacher"
+  },
+  {
+    "id": 3,
+    "name": "Ahmed Ali",
+    "email": "student1@school.com",
+    "password": "student123",
+    "role": "student"
+  },
+  {
+    "id": 4,
+    "name": "Usman Ahmed",
+    "email": "parent1@school.com",
+    "password": "parent123",
+    "role": "parent"
+  }
+]
