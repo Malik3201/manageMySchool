@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "../../components/button";
+import Button from "../../components/Button";
 
 const Home = () => {
   return (
@@ -12,7 +12,8 @@ const Home = () => {
 
         {/* Tagline */}
         <p className="text-gray-600 text-lg sm:text-xl max-w-xl mx-auto">
-          The SmartCampus School Portal – Manage Teachers, Students, Attendance, Exams & More.
+          The SmartCampus School Portal – Manage Teachers, Students, Attendance,
+          Exams & More.
         </p>
 
         {/* Call to Action */}

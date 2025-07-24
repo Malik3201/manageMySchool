@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Mrs. Ayesha Khan",
+    "email": "ayesha.khan@smartcampus.edu",
+    "phone": "0300-1234567",
+    "subjects": ["English", "Literature"],
+    "assignedClasses": ["Class 6 - A", "Class 8 - B"],
+    "profileImage": "/images/teachers/ayesha.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mr. Imran Qureshi",
+    "email": "imran.qureshi@smartcampus.edu",
+    "phone": "0301-7654321",
+    "subjects": ["Mathematics", "Physics"],
+    "assignedClasses": ["Class 9 - A", "Class 10 - C"],
+    "profileImage": "/images/teachers/imran.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Miss Sana Malik",
+    "email": "sana.malik@smartcampus.edu",
+    "phone": "0321-5554433",
+    "subjects": ["Biology", "Chemistry"],
+    "assignedClasses": ["Class 7 - B"],
+    "profileImage": "/images/teachers/sana.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Sir Noman Sheikh",
+    "email": "noman.sheikh@smartcampus.edu",
+    "phone": "0345-6677889",
+    "subjects": ["Computer Science"],
+    "assignedClasses": ["Class 8 - A", "Class 9 - B"],
+    "profileImage": "/images/teachers/noman.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Mrs. Rabia Tariq",
+    "email": "rabia.tariq@smartcampus.edu",
+    "phone": "0312-9988776",
+    "subjects": ["Islamiat", "Pakistan Studies"],
+    "assignedClasses": ["Class 6 - B", "Class 7 - A"],
+    "profileImage": "/images/teachers/rabia.jpg"
+  }
+]
