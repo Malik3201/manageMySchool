@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTeacher, getTeachers } from "../../redux/TeacherSlice";
 import Button from "../../components/Button";
 import Table from "../../components/Table";
-import AddTeacherModel from "./AddTeacherModel";
-
+import AddTeacherModal from "./AddTeacherModel";
+import EditTeacherModel from "./EditTeacherModel";
 
 const TeacherList = () => {
-  const [teachers, setTeachers] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const dispatch = useDispatch();
+  const { teachers, loading, error } = useSelector(
+    (state) => state.teacherReducer
+  );
 
- 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedTeacher, setSelectedTeacher] = useState(null); 
+
   useEffect(() => {
-    fetch("/data/teachers.json")
-      .then((res) => res.json())
-      .then((data) => setTeachers(data))
-      .catch((err) => console.error("Failed to load teachers:", err));
-  }, []);
+    dispatch(getTeachers());
+  }, [dispatch]);
 
- 
   const columns = [
     { header: "Name", accessor: "name" },
     { header: "Email", accessor: "email" },
@@ -27,32 +30,68 @@ const TeacherList = () => {
     },
   ];
 
+  const handleEdit = (teacher) => {
+    setSelectedTeacher(teacher); 
+    setIsEditModalOpen(true); 
+  };
 
-  const handleAddTeacher = (newTeacher) => {
-    setTeachers((prev) => [...prev, newTeacher]);
+  const handleDelete = (id) => {
+    dispatch(deleteTeacher(id));
   };
 
   return (
     <div className="p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800">Teacher Management</h2>
+        <h2 className="text-2xl font-semibold text-gray-800">
+          Teacher Management
+        </h2>
         <Button variant="primary" onClick={() => setIsModalOpen(true)}>
           + Add Teacher
         </Button>
       </div>
 
+      {loading && <p className="text-gray-500">Loading teachers...</p>}
+      {error && <p className="text-red-500">Error: {error}</p>}
+
       {teachers.length > 0 ? (
-        <Table columns={columns} data={teachers} />
+        <Table
+          columns={columns}
+          data={teachers}
+          actions={(row) => (
+            <div className="flex space-x-2">
+              <button
+                onClick={() => handleEdit(row)}
+                className="text-blue-600 hover:underline text-sm"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(row.id)}
+                className="text-red-600 hover:underline text-sm"
+              >
+                Delete
+              </button>
+            </div>
+          )}
+        />
       ) : (
-        <p className="text-gray-500">No teachers found.</p>
+        !loading && <p className="text-gray-500">No teachers found.</p>
       )}
 
   
-      <AddTeacherModel
+      <AddTeacherModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onAdd={handleAddTeacher}
       />
+
+    
+      {selectedTeacher && (
+        <EditTeacherModel
+          isOpen={isEditModalOpen}
+          onClose={() => setIsEditModalOpen(false)}
+          teacher={selectedTeacher}
+        />
+      )}
     </div>
   );
 };

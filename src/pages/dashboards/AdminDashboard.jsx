@@ -8,6 +8,8 @@ import Fees from "../Fees";
 import NoticeBoard from "../NoticeBoard";
 import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";
+import ClassManagement from "../../modules/classes/ClassManagement";
+import TeacherManagement from "../../modules/teacher/TeacherManagement";
 const AdminDashboard = () => {
   return (
     <>
@@ -17,8 +19,8 @@ const AdminDashboard = () => {
           <div className="p-6 overflow-auto">
             <Routes>
               <Route path="students" element={<Students />} />
-              <Route path="teachers" element={<Teachers />} />
-              <Route path="classes" element={<Classes />} />
+              <Route path="teachers" element={<TeacherManagement />} />
+              <Route path="classes" element={<ClassManagement />} />
               <Route path="attendance" element={<Attendance />} />
               <Route path="exams" element={<Exams />} />
               <Route path="fees" element={<Fees />} />
