@@ -1,10 +1,13 @@
 import { useDispatch } from "react-redux";
 import Button from "../../components/Button";
 import { logOut } from "../../redux/authReducer";
-import TeacherList from "../../modules/teacher/TeacherList";
+import TeacherManagement from "../../modules/teacher/TeacherManagement";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
 
   return (
     <>
@@ -12,7 +15,7 @@ const AdminDashboard = () => {
       <h1>this is Admin Dashboard</h1>
       <h2>test conflict</h2>
 
-      <TeacherList/>
+       <button onClick={() =>navigate("/teacher-management")}>teacher TeacherManagement</button>
     </>
   );
 };
