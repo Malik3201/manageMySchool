@@ -24,7 +24,7 @@ const authReducer = createSlice({
   name: "authReducer",
   initialState: {
     errors: null,
-    isLoggedIn: false,
+    isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,
     userId: null,
     userRole: null,
     isLoading: false,
@@ -34,6 +34,7 @@ const authReducer = createSlice({
       localStorage.removeItem("userId");
       localStorage.removeItem("userRole");
       state.isLoggedIn = false;
+      localStorage.removeItem("isLoggedIn");
     },
   },
   extraReducers: (builder) => {
@@ -46,6 +47,7 @@ const authReducer = createSlice({
         state.isLoading = false;
         state.errors = null;
         state.isLoggedIn = true;
+        localStorage.setItem("isLoggedIn", JSON.stringify(true));
         state.userId = action.payload.id;
         localStorage.setItem("userId", JSON.stringify(action.payload.id));
         state.userRole = action.payload.role;
