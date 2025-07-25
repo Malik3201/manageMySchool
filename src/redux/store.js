@@ -8,7 +8,7 @@ const store = configureStore({
     authReducer: authReducer,
     teacherReducer: teacherReducer,
     classReducer: classSlice,
-        studentsSlice: studentsSlice,
+    studentsSlice: studentsSlice,
   },
 });
 
