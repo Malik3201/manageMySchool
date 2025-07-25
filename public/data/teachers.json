@@ -43,14 +43,5 @@
     "subjects": ["Islamiat", "Pakistan Studies"],
     "assignedClasses": ["Class 6 - B", "Class 7 - A"],
     "profileImage": "/images/teachers/rabia.jpg"
-  },
-  {
-    "id": 6,
-    "name": "Mrs. Hareem Khan",
-    "email": "hareem.khan@smartcampus.edu",
-    "phone": "0311-1234567",
-    "subjects": ["Computer Science", "Literature"],
-    "assignedClasses": ["Class 6 - A", "Class 8 - B"],
-    "profileImage": "/images/teachers/hareem.jpg"
   }
 ]

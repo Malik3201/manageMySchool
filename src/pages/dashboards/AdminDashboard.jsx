@@ -6,6 +6,7 @@ import Fees from "../Fees";
 import NoticeBoard from "../NoticeBoard";
 import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";
+import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
