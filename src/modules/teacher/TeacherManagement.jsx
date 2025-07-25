@@ -1,12 +1,10 @@
-import TeacherList from "./TeacherList"
+import TeacherList from "./TeacherList";
 
-function TeacherManagement(){
-
-return(
+function TeacherManagement() {
+  return (
     <>
-    <div>
-        <TeacherList/>
-    </div>
+      <TeacherList />
     </>
-)
-}export default TeacherManagement
+  );
+}
+export default TeacherManagement;

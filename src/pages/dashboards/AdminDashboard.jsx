@@ -1,6 +1,4 @@
 import Sidebar from "../../components/Sidebar";
-import Teachers from "../Teachers";
-import Students from "../Students";
 import Classes from "../Classes";
 import Attendance from "../Attendence";
 import Exams from "../Exams";
@@ -8,6 +6,9 @@ import Fees from "../Fees";
 import NoticeBoard from "../NoticeBoard";
 import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";
+import TeacherManagement from "../../modules/teacher/TeacherManagement";
+import { Navigate } from "react-router-dom";
+import StudentManagement from "../../modules/students/StudentManagemant";
 const AdminDashboard = () => {
   return (
     <>
@@ -16,8 +17,9 @@ const AdminDashboard = () => {
         <div className="flex-1 flex flex-col">
           <div className="p-6 overflow-auto">
             <Routes>
-              <Route path="students" element={<Students />} />
-              <Route path="teachers" element={<Teachers />} />
+              <Route index element={<Navigate to="notice-board" replace />} />
+              <Route path="students" element={<StudentManagement />} />
+              <Route path="teachers" element={<TeacherManagement />} />
               <Route path="classes" element={<Classes />} />
               <Route path="attendance" element={<Attendance />} />
               <Route path="exams" element={<Exams />} />
@@ -27,8 +29,6 @@ const AdminDashboard = () => {
             </Routes>
           </div>
         </div>
-        {/* 
-        <h1 className="bg-red-200">This is Admin Dashboard</h1> */}
       </div>
     </>
   );

@@ -1,0 +1,67 @@
+[
+  {
+    "id": 101,
+    "name": "Ahmed Raza",
+    "rollNumber": "6A-01",
+    "class": "Class 6",
+    "section": "A",
+    "gender": "Male",
+    "dob": "2012-03-15",
+    "guardian": "Raza Hussain",
+    "contact": "0302-1112233",
+    "address": "123 Gulshan-e-Iqbal, Karachi",
+    "profileImage": "/images/students/ahmed.jpg"
+  },
+  {
+    "id": 102,
+    "name": "Fatima Noor",
+    "rollNumber": "6A-02",
+    "class": "Class 6",
+    "section": "A",
+    "gender": "Female",
+    "dob": "2012-07-20",
+    "guardian": "Noor Ahmed",
+    "contact": "0303-4445566",
+    "address": "456 PECHS Block 2, Karachi",
+    "profileImage": "/images/students/fatima.jpg"
+  },
+  {
+    "id": 103,
+    "name": "Bilal Khan",
+    "rollNumber": "7B-03",
+    "class": "Class 7",
+    "section": "B",
+    "gender": "Male",
+    "dob": "2011-05-10",
+    "guardian": "Tariq Khan",
+    "contact": "0344-3322114",
+    "address": "House #22, DHA Phase 5, Karachi",
+    "profileImage": "/images/students/bilal.jpg"
+  },
+  {
+    "id": 104,
+    "name": "Areeba Siddiqui",
+    "rollNumber": "8A-05",
+    "class": "Class 8",
+    "section": "A",
+    "gender": "Female",
+    "dob": "2010-09-18",
+    "guardian": "Ali Siddiqui",
+    "contact": "0333-2244668",
+    "address": "Nazimabad Block 4, Karachi",
+    "profileImage": "/images/students/areeba.jpg"
+  },
+  {
+    "id": 105,
+    "name": "Usman Ali",
+    "rollNumber": "9C-07",
+    "class": "Class 9",
+    "section": "C",
+    "gender": "Male",
+    "dob": "2009-01-05",
+    "guardian": "Mohsin Ali",
+    "contact": "0300-8881122",
+    "address": "Korangi Sector 33, Karachi",
+    "profileImage": "/images/students/usman.jpg"
+  }
+]
