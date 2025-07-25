@@ -41,11 +41,9 @@ const TeacherList = () => {
 
   return (
     <div className="p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-semibold text-gray-800">
-          Teacher Management
-        </h2>
-        <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+      <div className="flex items-center justify-self-end mb-5">
+        
+        <Button  variant="primary" onClick={() => setIsModalOpen(true)}>
           + Add Teacher
         </Button>
       </div>

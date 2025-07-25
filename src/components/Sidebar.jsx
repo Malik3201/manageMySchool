@@ -5,18 +5,18 @@ import Button from "./Button";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const links = [
+    { name: "Notice Board", path: "/admin-dashboard/notice-board" },
     { name: "Students", path: "/admin-dashboard/students" },
     { name: "Teachers", path: "/admin-dashboard/teachers" },
     { name: "Classes", path: "/admin-dashboard/classes" },
     { name: "Attendance", path: "/admin-dashboard/attendance" },
     { name: "Exams", path: "/admin-dashboard/exams" },
     { name: "Fees", path: "/admin-dashboard/fees" },
-    { name: "Notice Board", path: "/admin-dashboard/notice-board" },
     { name: "Reports", path: "/admin-dashboard/reports" },
   ];
   return (
     <>
-      <div className="w-64 bg-white shadow-md p-4">
+      <div className=" w-64 bg-white shadow-md p-4">
         <h2 className="text-xl font-bold mb-6">Admin Panel</h2>
         <nav className="flex flex-col gap-2 justify-around">
           {links.map((link) => (

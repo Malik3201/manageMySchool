@@ -20,8 +20,7 @@ function EditTeacherModel({isOpen, onClose,teacher}){
   };
   const handleSubmit = (e) => {
       e.preventDefault();
-  
-      
+
   
       dispatch(editTeacher(editData)); 
       onClose();  
