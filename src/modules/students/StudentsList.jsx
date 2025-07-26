@@ -4,8 +4,12 @@ import Table from "../../components/Table";
 import StudentModal from "./StudentModal";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteStudent, fetchStudents } from "../../redux/studentsSlice";
+import ConfirmModal from "./ConfirmModal";
+import DetailModal from "./DetailModal";
 
 const StudentsList = () => {
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+  const [detailModalOpen, setDetailModalOpen] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchStudents());
@@ -41,10 +45,20 @@ const StudentsList = () => {
       <Button
         variant="danger"
         onClick={() => {
-          dispatch(deleteStudent(row.id));
+          setConfirmModalOpen(true);
+          setStudentId(row.id);
         }}
       >
         Delete
+      </Button>
+      <Button
+        variant="primary"
+        onClick={() => {
+          setDetailModalOpen(true);
+          setStudentId(row.id);
+        }}
+      >
+        View Detail
       </Button>
     </div>
   );
@@ -78,6 +92,18 @@ const StudentsList = () => {
           modalTask={modalTask}
           studentId={studentId}
           closeModal={closeModal}
+        />
+      ) : null}
+      {confirmModalOpen ? (
+        <ConfirmModal
+          setConfirmModalOpen={setConfirmModalOpen}
+          studentId={studentId}
+        />
+      ) : null}
+      {detailModalOpen ? (
+        <DetailModal
+          studentId={studentId}
+          setDetailModalOpen={setDetailModalOpen}
         />
       ) : null}
     </div>
