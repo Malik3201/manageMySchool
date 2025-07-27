@@ -21,7 +21,7 @@ const AdminDashboard = () => {
               <Route index element={<Navigate to="notice-board" replace />} />
               <Route path="students" element={<StudentManagement />} />
               <Route path="teachers" element={<TeacherManagement />} />
-              <Route path="classes" element={<Classes />} />
+              <Route path="classes" element={<ClassManagement />} />
               <Route path="attendance" element={<Attendance />} />
               <Route path="exams" element={<Exams />} />
               <Route path="fees" element={<Fees />} />
