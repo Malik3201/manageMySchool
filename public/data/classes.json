@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "className": "Class KG",
     "sections": [
       {
@@ -95,6 +96,7 @@
     ]
   },
   {
+    "id": 2,
     "className": "Class 1",
     "sections": [
       {
@@ -190,6 +192,7 @@
     ]
   },
   {
+    "id": 3,
     "className": "Class 2",
     "sections": [
       {
@@ -285,6 +288,7 @@
     ]
   },
   {
+    "id": 4,
     "className": "Class 3",
     "sections": [
       {
@@ -380,6 +384,7 @@
     ]
   },
   {
+    "id": 5,
     "className": "Class 4",
     "sections": [
       {
@@ -475,6 +480,7 @@
     ]
   },
   {
+    "id": 6,
     "className": "Class 5",
     "sections": [
       {
@@ -570,6 +576,7 @@
     ]
   },
   {
+    "id": 7,
     "className": "Class 6",
     "sections": [
       {
@@ -665,6 +672,7 @@
     ]
   },
   {
+    "id": 8,
     "className": "Class 7",
     "sections": [
       {
@@ -760,6 +768,7 @@
     ]
   },
   {
+    "id": 9,
     "className": "Class 8",
     "sections": [
       {
@@ -855,6 +864,7 @@
     ]
   },
   {
+    "id": 10,
     "className": "Class 9",
     "sections": [
       {
@@ -950,6 +960,7 @@
     ]
   },
   {
+    "id": 11,
     "className": "Class 10",
     "sections": [
       {
@@ -1045,6 +1056,7 @@
     ]
   },
   {
+    "id": 12,
     "className": "Class 11",
     "sections": [
       {
@@ -1140,6 +1152,7 @@
     ]
   },
   {
+    "id": 13,
     "className": "Class 12",
     "sections": [
       {
