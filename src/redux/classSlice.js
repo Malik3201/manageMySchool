@@ -2,19 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const getClasses = createAsyncThunk(
   "getClasses", 
-  async (_, { rejectWithValue }) => {
-    try {
+  async () => {
       const res = await fetch("/data/classes.json");
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
       const classesData = await res.json();
       return classesData;
-    } catch (error) {
-      console.error("Error fetching classes:", error);
-      return rejectWithValue(error.message);
-    }
-  }
+    } 
 );
 
 const classSlice = createSlice({
