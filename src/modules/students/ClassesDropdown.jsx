@@ -23,7 +23,7 @@ const ClassesDropdown = ({ register, errors }) => {
         }`}
         {...register("class", { required: "Class is required" })}
       >
-        <option value="" selected >
+        <option value="">
           Select Class
         </option>
         {classList.map((cls, indx) => {
