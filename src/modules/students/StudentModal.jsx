@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { editStudent, addStudent } from "../../redux/studentsSlice";
 import { useEffect } from "react";
+import ClassesDropdown from "./ClassesDropdown";
+import SectionsDropdown from "./SectionsDropdown";
 
 function StudentModal({ modalTask, studentId, closeModal }) {
   const { students } = useSelector((state) => state.studentsSlice);
@@ -83,29 +85,9 @@ function StudentModal({ modalTask, studentId, closeModal }) {
             <p className="text-sm text-red-500">{errors.name.message}</p>
           )}
 
-          <input
-            type="text"
-            placeholder="Enter Class"
-            className={`w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors.name ? "border-red-500" : "border-gray-300"
-            }`}
-            {...register("class", { required: "Class is required" })}
-          />
-          {errors.class && (
-            <p className="text-sm text-red-500">{errors.class.message}</p>
-          )}
+          <ClassesDropdown register={register} errors={errors} />
 
-          <input
-            type="text"
-            placeholder="Enter Section"
-            className={`w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-              errors.name ? "border-red-500" : "border-gray-300"
-            }`}
-            {...register("section", { required: "Section is required" })}
-          />
-          {errors.section && (
-            <p className="text-sm text-red-500">{errors.section.message}</p>
-          )}
+          <SectionsDropdown register={register} errors={errors} />
 
           <div className="flex justify-end gap-3 pt-2">
             <Button variant="secondary" type="button" onClick={closeModal}>
