@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import Table from "../../components/Table";
 import StudentModal from "./StudentModal";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteStudent, fetchStudents } from "../../redux/studentsSlice";
+import { fetchStudents } from "../../redux/studentsSlice";
 import ConfirmModal from "./ConfirmModal";
 import DetailModal from "./DetailModal";
 
