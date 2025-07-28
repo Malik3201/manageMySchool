@@ -65,7 +65,7 @@ const TeacherList = () => {
               </button>
               <button
                 onClick={() => handleDelete(row.id)}
-                className="text-white hover:underline text-sm bg-red-500 p-1 rounded-md"
+                className="text-white hover:underline text-sm bg-red-500 p-1 rounded-"
               >
                 Delete
               </button>

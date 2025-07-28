@@ -46,13 +46,13 @@ function AddTeacherModal({ isOpen, onClose }) {
     setFormData((prev) => {
       const isSelected = prev.assignedClasses.includes(classSection);
       if (isSelected) {
-        // Remove from selection
+       
         return {
           ...prev,
           assignedClasses: prev.assignedClasses.filter(cls => cls !== classSection)
         };
       } else {
-        // Add to selection
+       
         return {
           ...prev,
           assignedClasses: [...prev.assignedClasses, classSection]

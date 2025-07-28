@@ -90,7 +90,8 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
               !classSections.includes(cls)
             )
           };
-        } else {
+        }
+         else {
           
           const newSelections = classSections.filter(cs => 
             !prev.assignedClasses.includes(cs)
@@ -232,7 +233,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
               <div className="max-h-64 overflow-y-auto">
                 {availableClasses.length > 0 ? (
                   <div className="p-3">
-                    {/* Group classes by class name */}
+                   
                     {uniqueClassNames
                       .filter(className => 
                         selectedClass === "all" || selectedClass === className
