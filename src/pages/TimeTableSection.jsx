@@ -1,8 +1,8 @@
 import axios from "axios";
-import Timetable from "../../components/Timetable";
+import Timetable from "../components/Timetable";
 import { useEffect, useState } from "react";
-import ClassesDropdown from "../../components/ClassesDropdown";
-import SectionsDropdown from "../../components/SectionsDropdown";
+import ClassesDropdown from "../components/ClassesDropdown";
+import SectionsDropdown from "../components/SectionsDropdown";
 import { useForm } from "react-hook-form";
 
 const TimeTableSection = () => {
