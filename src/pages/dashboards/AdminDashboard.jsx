@@ -1,5 +1,5 @@
 import Sidebar from "../../components/Sidebar";
-import Attendance from "../Attendence";
+// import Attendance from "../Attendence";
 import Exams from "../Exams";
 import Fees from "../Fees";
 import NoticeBoard from "../NoticeBoard";
@@ -10,6 +10,8 @@ import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
 import TimeTableSection from "./TimeTableSection";
+import AttendanceManagement from "../../modules/Attendance/AttendanceManagement";
+// import AttendanceManagement from "../../modules/Attendance/AttendanceManagement";
 const AdminDashboard = () => {
   return (
     <>
@@ -22,7 +24,7 @@ const AdminDashboard = () => {
               <Route path="students" element={<StudentManagement />} />
               <Route path="teachers" element={<TeacherManagement />} />
               <Route path="classes" element={<ClassManagement />} />
-              <Route path="attendance" element={<Attendance />} />
+              <Route path="attendance" element={<AttendanceManagement />} />
               <Route path="exams" element={<Exams />} />
               <Route path="fees" element={<Fees />} />
               <Route path="notice-board" element={<NoticeBoard />} />

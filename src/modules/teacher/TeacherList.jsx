@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import Table from "../../components/Table";
 import AddTeacherModal from "./AddTeacherModel";
 import EditTeacherModel from "./EditTeacherModel";
+import TeacherDetailModal from "./TeacherDetailModel";
 
 const TeacherList = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ const TeacherList = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [selectedTeacher, setSelectedTeacher] = useState(null); 
+  const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [detailModalOpen, setDetailModalOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getTeachers());
@@ -31,19 +33,23 @@ const TeacherList = () => {
   ];
 
   const handleEdit = (teacher) => {
-    setSelectedTeacher(teacher); 
-    setIsEditModalOpen(true); 
+    setSelectedTeacher(teacher);
+    setIsEditModalOpen(true);
   };
 
   const handleDelete = (id) => {
     dispatch(deleteTeacher(id));
   };
 
+  const handleViewDetail = (teacher) => {
+    setSelectedTeacher(teacher);
+    setDetailModalOpen(true);
+  };
+
   return (
     <div className="p-6">
-      <div className="flex items-center justify-self-end mb-5">
-        
-        <Button  variant="primary" onClick={() => setIsModalOpen(true)}>
+      <div className="flex items-center justify-end mb-5">
+        <Button variant="primary" onClick={() => setIsModalOpen(true)}>
           + Add Teacher
         </Button>
       </div>
@@ -65,9 +71,15 @@ const TeacherList = () => {
               </button>
               <button
                 onClick={() => handleDelete(row.id)}
-                className="text-white hover:underline text-sm bg-red-500 p-1 rounded-"
+                className="text-white hover:underline text-sm bg-red-500 p-1 rounded-md"
               >
                 Delete
+              </button>
+              <button
+                onClick={() => handleViewDetail(row)}
+                className="text-white hover:underline text-sm bg-green-500 p-1 rounded-md"
+              >
+                View Details
               </button>
             </div>
           )}
@@ -76,18 +88,23 @@ const TeacherList = () => {
         !loading && <p className="text-gray-500">No teachers found.</p>
       )}
 
-  
       <AddTeacherModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
 
-    
       {selectedTeacher && (
         <EditTeacherModel
           isOpen={isEditModalOpen}
           onClose={() => setIsEditModalOpen(false)}
           teacher={selectedTeacher}
+        />
+      )}
+
+      {detailModalOpen && selectedTeacher && (
+        <TeacherDetailModal
+          teacher={selectedTeacher}
+          onClose={() => setDetailModalOpen(false)}
         />
       )}
     </div>

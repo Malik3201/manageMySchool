@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 const DetailModal = ({ studentId, setDetailModalOpen }) => {
   const { students } = useSelector((state) => state.studentsSlice);
   const student = students.find((stu) => stu.id == studentId);
-
+  
   if (!student) return null;
 
   return (

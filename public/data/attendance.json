@@ -1,0 +1,488 @@
+[
+  {
+    "date": "2025-07-28",
+    "class": "10",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu10A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu10A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu10A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "class": "10",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu10B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu10B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu10B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "class": "9",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu9A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu9A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu9A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "class": "9",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu9B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu9B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu9B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "class": "8",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu8A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu8A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu8A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "class": "8",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu8B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu8B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu8B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-29",
+    "class": "10",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu10A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu10A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu10A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-29",
+    "class": "10",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu10B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu10B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu10B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-29",
+    "class": "9",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu9A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu9A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu9A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-29",
+    "class": "9",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu9B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu9B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu9B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-29",
+    "class": "8",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu8A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu8A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu8A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-29",
+    "class": "8",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu8B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu8B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu8B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-30",
+    "class": "10",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu10A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu10A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu10A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-30",
+    "class": "10",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu10B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu10B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu10B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu10B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-30",
+    "class": "9",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu9A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu9A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu9A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-30",
+    "class": "9",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu9B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu9B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu9B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu9B-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-30",
+    "class": "8",
+    "section": "A",
+    "records": [
+      {
+        "studentId": "stu8A-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8A-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu8A-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu8A-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8A-05",
+        "status": "Leave"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-30",
+    "class": "8",
+    "section": "B",
+    "records": [
+      {
+        "studentId": "stu8B-01",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8B-02",
+        "status": "Leave"
+      },
+      {
+        "studentId": "stu8B-03",
+        "status": "Present"
+      },
+      {
+        "studentId": "stu8B-04",
+        "status": "Absent"
+      },
+      {
+        "studentId": "stu8B-05",
+        "status": "Leave"
+      }
+    ]
+  }
+]
