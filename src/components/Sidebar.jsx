@@ -13,6 +13,7 @@ const Sidebar = () => {
     { name: "Exams", path: "/admin-dashboard/exams" },
     { name: "Fees", path: "/admin-dashboard/fees" },
     { name: "Reports", path: "/admin-dashboard/reports" },
+    { name: "Timetable", path: "/admin-dashboard/time-table" },
   ];
   return (
     <>
