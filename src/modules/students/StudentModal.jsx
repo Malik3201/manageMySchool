@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { editStudent, addStudent } from "../../redux/studentsSlice";
 import { useEffect } from "react";
-import ClassesDropdown from "./ClassesDropdown";
-import SectionsDropdown from "./SectionsDropdown";
+import ClassesDropdown from "../../components/ClassesDropdown";
+import SectionsDropdown from "../../components/SectionsDropdown";
 
 function StudentModal({ modalTask, studentId, closeModal }) {
   const { students } = useSelector((state) => state.studentsSlice);
