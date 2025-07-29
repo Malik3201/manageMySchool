@@ -1,20 +1,44 @@
+import { useState } from "react";
+import Button from "./Button";
+import TimetableEditModal from "./TimetableEditModal";
+
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const periodTime = [
+  "09:00 - 09:45",
+  "09:45 - 10:30",
+  "10:30 - 11:15",
+  "11:15 - 11:45",
+  "11:45 - 12:30",
+  "12:30 - 01:15",
+  "01:15 - 02:00",
+];
+
 const Timetable = ({ classLabel, section, schedule }) => {
-  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  const periodTime = [
-    "09:00 - 09:45",
-    "09:45 - 10:30",
-    "10:30 - 11:15",
-    "11:15 - 11:45",
-    "11:45 - 12:30",
-    "12:30 - 01:15",
-    "01:15 - 02:00",
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentSchedule, setCurrentSchedule] = useState(schedule);
+
+  const handleSave = (updatedSchedule) => {
+    setCurrentSchedule(updatedSchedule);
+
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="p-4 bg-white shadow-md rounded-2xl overflow-auto max-w-full">
       <h2 className="text-2xl font-semibold mb-4 text-gray-800">
         Timetable - {classLabel} {section}
       </h2>
-      <div className="overflow-x-auto">
+      <Button onClick={() => setIsModalOpen(true)}>Update Time Table</Button>
+
+      {isModalOpen && (
+        <TimetableEditModal
+          setIsModalOpen={setIsModalOpen}
+          schedule={currentSchedule}
+          onSave={handleSave}
+        />
+      )}
+
+      <div className="overflow-x-auto mt-4">
         <table className="min-w-full border-collapse table-auto text-sm text-left">
           <thead>
             <tr className="bg-blue-100 text-gray-700">
@@ -31,9 +55,9 @@ const Timetable = ({ classLabel, section, schedule }) => {
               <tr key={time}>
                 <td className="border p-2 font-medium bg-gray-50">{time}</td>
                 {days.map((day) => {
-                  const period = schedule[day][periodIndex];
-
+                  const period = currentSchedule[day][periodIndex];
                   const isBreak = period.subject === "Break";
+
                   return (
                     <td
                       key={`${day}-${periodIndex}`}
