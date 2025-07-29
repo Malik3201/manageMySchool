@@ -1,13 +1,13 @@
 import axios from "axios";
 import Timetable from "../../components/Timetable";
 import { useEffect, useState } from "react";
-import ClassesDropdown from "../../modules/students/ClassesDropdown";
-import SectionsDropdown from "../../modules/students/SectionsDropdown";
+import ClassesDropdown from "../../components/ClassesDropdown";
+import SectionsDropdown from "../../components/SectionsDropdown";
 import { useForm } from "react-hook-form";
 
 const TimeTableSection = () => {
-  const [timeTbl, setTimeTbl] = useState(null);
-  const [classSchedule, setClassSchedule] = useState({});
+  const [timeTbl, setTimeTbl] = useState(null); //ismy sirf wo aik class ka timetable filter ho kar ay ga jo user ny search kiya hai
+  const [classSchedule, setClassSchedule] = useState({}); // jo user ki taraf sy data aa rha k kis class or section ka schedule dekhna hai
 
   const {
     register,
