@@ -6,23 +6,55 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchStudents } from "../../redux/studentsSlice";
 import ConfirmModal from "./ConfirmModal";
 import DetailModal from "./DetailModal";
+import ClassesDropdown from "../../components/ClassesDropdown";
+import SectionsDropdown from "../../components/SectionsDropdown";
+import { useForm } from "react-hook-form";
 
 const StudentsList = () => {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
   const [detailModalOpen, setDetailModalOpen] = useState(false);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchStudents());
-  }, []);
-
-  const { students } = useSelector((state) => state.studentsSlice);
+  const [userSearch, setUserSearch] = useState("");
+  const [studentsList, setStudentsList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalTask, setModalTask] = useState(null);
   const [studentId, setStudentId] = useState(null);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const dispatch = useDispatch();
+  const { students } = useSelector((state) => state.studentsSlice);
+
+  useEffect(() => {
+    dispatch(fetchStudents());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setStudentsList(students);
+  }, [students]);
+
+  const filterStudents = (e) => {
+    const value = e.target.value;
+    setUserSearch(value);
+
+    const filteredStudent = students.filter((stu) =>
+      stu.name.toLowerCase().includes(value.toLowerCase()) 
+    );
+    setStudentsList(filteredStudent);
   };
+
+  const closeModal = () => setIsModalOpen(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const filteredStudent = students.filter((stu) =>
+      stu.class ===  data.class && stu.section === data.section
+    );
+    setStudentsList(filteredStudent);
+  };
+
   const columns = [
     { header: "Roll No", accessor: "rollNumber" },
     { header: "Name", accessor: "name" },
@@ -69,6 +101,24 @@ const StudentsList = () => {
         <h2 className="text-2xl font-semibold text-gray-800">
           Student Management
         </h2>
+        <input
+          type="text"
+          value={userSearch}
+          onChange={filterStudents}
+          placeholder="Search by name..."
+          className="border px-3 py-2 rounded"
+        />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ClassesDropdown register={register} errors={errors} />
+            <SectionsDropdown register={register} errors={errors} />
+          </div>
+          <input
+            type="submit"
+            value="Apply Filter"
+            className="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 cursor-pointer"
+          />
+        </form>
         <Button
           variant="primary"
           onClick={() => {
@@ -81,31 +131,31 @@ const StudentsList = () => {
         </Button>
       </div>
 
-      {students.length > 0 ? (
-        <Table columns={columns} data={students} actions={actions} />
+      {studentsList.length > 0 ? (
+        <Table columns={columns} data={studentsList} actions={actions} />
       ) : (
         <p className="text-gray-500">No students found.</p>
       )}
 
-      {isModalOpen ? (
+      {isModalOpen && (
         <StudentModal
           modalTask={modalTask}
           studentId={studentId}
           closeModal={closeModal}
         />
-      ) : null}
-      {confirmModalOpen ? (
+      )}
+      {confirmModalOpen && (
         <ConfirmModal
           setConfirmModalOpen={setConfirmModalOpen}
           studentId={studentId}
         />
-      ) : null}
-      {detailModalOpen ? (
+      )}
+      {detailModalOpen && (
         <DetailModal
           studentId={studentId}
           setDetailModalOpen={setDetailModalOpen}
         />
-      ) : null}
+      )}
     </div>
   );
 };

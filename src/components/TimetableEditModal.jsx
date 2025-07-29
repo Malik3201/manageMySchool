@@ -19,7 +19,6 @@ const TimetableEditModal = ({ setIsModalOpen, schedule, onSave }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: { schedule },
   });
-  console.log("Masla kia hy");
   
   const onSubmit = (data) => {
     onSave(data.schedule);
