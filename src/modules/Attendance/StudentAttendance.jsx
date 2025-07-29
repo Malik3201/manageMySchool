@@ -1,9 +1,9 @@
 import DailyReport from "./DailyReport"
 import MarkAttendance from "./MarkAttendance"
 
-function AttendanceManagement(){
+function StudentAttendance(){
 return(<>
 <DailyReport />
 <MarkAttendance />
 </>)
-}export default AttendanceManagement
+}export default StudentAttendance
