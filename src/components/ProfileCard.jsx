@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import PasswordModal from "./PasswordModal";
 
 const ProfileCard = ({ role, data }) => {
-  console.log(data.subjects.join(", ")); // it works fine but when i refresh the component, it says that data.subjects is undefined
   if (!data) return null;
 
   const [showPassword, setShowPassword] = useState(false);
