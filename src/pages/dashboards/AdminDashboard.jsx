@@ -15,7 +15,10 @@ import TimeTableSection from "../TimeTableSection";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
 import StudentAttendance from "../../modules/Attendance/StudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
+
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
+
+
 import Settings from "../Settings";
 const AdminDashboard = () => {
   return (
@@ -30,6 +33,7 @@ const AdminDashboard = () => {
               <Route path="teachers" element={<TeacherManagement />} />
               <Route path="classes" element={<ClassManagement />} />
 
+
               <Route
                 path="attendance/student-Attendance"
                 element={<StudentAttendance />}
@@ -41,6 +45,7 @@ const AdminDashboard = () => {
 
               <Route path="exams" element={<ExamsManagement />} />
               <Route path="fees" element={<FeesManagement/>} />
+
               <Route path="notice-board" element={<NoticeBoard />} />
               <Route path="reports" element={<Reports />} />
               <Route path="time-table" element={<TimeTableSection />} />
