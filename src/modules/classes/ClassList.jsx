@@ -56,72 +56,89 @@ const ClassList = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-800">Class Management</h2>
-          <p className="text-sm text-gray-500 mt-1">
-            Manage classes and their sections
-          </p>
+    <div className="p-8 bg-white rounded-xl shadow-lg">
+ 
+  <div className="flex items-center justify-between mb-8">
+    <div>
+      <h2 className="text-3xl font-bold text-slate-800 mb-1 flex items-center gap-2">
+        Class Management
+      </h2>
+      <p className="text-sm text-gray-500">
+        Manage classes and their sections easily.
+      </p>
+    </div>
+    <Button
+      variant="primary"
+      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow transition"
+      onClick={() => setIsAddModalOpen(true)}
+    >
+      + Add Class
+    </Button>
+  </div>
+
+
+  {loading && (
+    <p className="text-gray-500 text-center animate-pulse">Loading classes...</p>
+  )}
+  {error && (
+    <p className="text-red-500 text-center font-medium">Error: {error}</p>
+  )}
+
+  
+  {classes.length > 0 ? (
+    <Table
+      columns={columns}
+      data={classes}
+      actions={(row) => (
+        <div className="flex gap-3">
+          <button
+            onClick={() => handleEdit(row)}
+            className="text-blue-600 hover:bg-blue-50 px-3 py-1 rounded-md text-sm font-semibold transition"
+          >
+             Edit
+          </button>
+          <button
+            onClick={() => handleDelete(row.id)}
+            className="text-red-600 hover:bg-red-50 px-3 py-1 rounded-md text-sm font-semibold transition"
+          >
+             Delete
+          </button>
         </div>
-        <Button variant="primary" onClick={() => setIsAddModalOpen(true)}>
-          + Add Class
+      )}
+    />
+  ) : (
+    !loading && (
+      <div className="text-center py-16">
+        <p className="text-gray-500 text-lg mb-4">
+          No classes found yet. Start by adding one!
+        </p>
+        <Button
+          variant="primary"
+          onClick={() => setIsAddModalOpen(true)}
+          className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-5 py-2 rounded-lg shadow-md transition"
+        >
+          + Add Your First Class
         </Button>
       </div>
+    )
+  )}
 
-      {loading && <p className="text-gray-500">Loading classes...</p>}
-      {error && <p className="text-red-500">Error: {error}</p>}
 
-      {classes.length > 0 ? (
-        <Table
-          columns={columns}
-          data={classes}
-          actions={(row) => (
-            <div className="flex space-x-2">
-              <button
-                onClick={() => handleEdit(row)}
-                className="text-blue-600 hover:underline text-sm font-medium"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(row.id)}
-                className="text-red-600 hover:underline text-sm font-medium"
-              >
-                Delete
-              </button>
-            </div>
-          )}
-        />
-      ) : (
-        !loading && (
-          <div className="text-center py-8">
-            <p className="text-gray-500 mb-4">No classes found.</p>
-            <Button
-              variant="primary"
-              onClick={() => setIsAddModalOpen(true)}
-            >
-              Add Your First Class
-            </Button>
-          </div>
-        )
-      )}
+  <AddClassModal
+    isOpen={isAddModalOpen}
+    onClose={() => setIsAddModalOpen(false)}
+  />
 
-      {/* Add Class Modal */}
-      <AddClassModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-      />
+ 
+  {selectedClass && (
+    <EditClassModal
+      isOpen={isEditModalOpen}
+      onClose={() => setIsEditModalOpen(false)}
+      classData={selectedClass}
+    />
+  )}
+</div>
 
-      {/* Edit Class Modal */}
-      {selectedClass && (
-        <EditClassModal
-          isOpen={isEditModalOpen}
-          onClose={() => setIsEditModalOpen(false)}
-          classData={selectedClass}
-        />
-      )}
-    </div>
   );
 };
 

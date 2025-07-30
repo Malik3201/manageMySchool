@@ -39,6 +39,7 @@ const StudentsList = () => {
     );
     setStudentsList(filteredStudent);
   };
+  
 
   const closeModal = () => setIsModalOpen(false);
 
