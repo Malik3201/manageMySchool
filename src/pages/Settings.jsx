@@ -9,12 +9,14 @@ const Settings = () => {
   useEffect(() => {
     const filterUser = async () => {
       const currentUser = await axios.get("/data/users.json");
-      setData(currentUser.data.find((user) => user.id == currentUserId));
+      const myUser = currentUser.data.find((user) => user.id == currentUserId);
+      
+      setData(myUser);
     };
 
     filterUser();
-    console.log(data);
   }, []);
+
   return (
     <>
       <ProfileCard data={data} role={currentUserRole} />

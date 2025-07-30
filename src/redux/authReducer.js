@@ -35,6 +35,8 @@ const authReducer = createSlice({
       localStorage.removeItem("userRole");
       state.isLoggedIn = false;
       localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("students");
+      localStorage.removeItem("classes");
     },
   },
   extraReducers: (builder) => {
