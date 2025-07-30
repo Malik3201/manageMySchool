@@ -4,27 +4,47 @@
     "name": "Ali Raza",
     "email": "admin@school.com",
     "password": "admin123",
-    "role": "admin"
+    "role": "admin",
+    "profileImage": "/images/users/admin.jpg",
+    "phone": "0300-0000000",
+    "address": "School Office, Karachi"
   },
   {
     "id": 2,
     "name": "Sara Khan",
     "email": "teacher1@school.com",
     "password": "teacher123",
-    "role": "teacher"
+    "role": "teacher",
+    "profileImage": "/images/teachers/ayesha.jpg",
+    "phone": "0300-1234567",
+    "subjects": ["English", "Literature"],
+    "assignedClasses": ["Class 6 - A", "Class 8 - B"],
+    "address": "Gulshan Iqbal, Karachi"
   },
   {
     "id": 3,
     "name": "Ahmed Ali",
     "email": "student1@school.com",
     "password": "student123",
-    "role": "student"
+    "role": "student",
+    "profileImage": "/images/students/default-male.jpg",
+    "rollNumber": "6-A-01",
+    "class": "Class 6",
+    "section": "A",
+    "gender": "Male",
+    "dob": "2014-06-28",
+    "guardian": "Qureshi Ahmed",
+    "contact": "0300-5371606",
+    "address": "691 Lyari Town, Karachi"
   },
   {
     "id": 4,
     "name": "Usman Ahmed",
     "email": "parent1@school.com",
     "password": "parent123",
-    "role": "parent"
+    "role": "parent",
+    "profileImage": "/images/users/parent.jpg",
+    "phone": "0300-5555555",
+    "children": ["Ahmed Ali"]
   }
 ]

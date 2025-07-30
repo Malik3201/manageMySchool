@@ -9,14 +9,19 @@ const Sidebar = () => {
     { name: "Students", path: "/admin-dashboard/students" },
     { name: "Teachers", path: "/admin-dashboard/teachers" },
     { name: "Classes", path: "/admin-dashboard/classes" },
-    
-    { name: "Student-Attendance", path: "/admin-dashboard/attendance/student-attendance" },
-    { name: "Teacher-Attendance", path: "/admin-dashboard/attendance/teacher-attendance" },
-
+    {
+      name: "Student-Attendance",
+      path: "/admin-dashboard/attendance/student-attendance",
+    },
+    {
+      name: "Teacher-Attendance",
+      path: "/admin-dashboard/attendance/teacher-attendance",
+    },
     { name: "Exams", path: "/admin-dashboard/exams" },
     { name: "Fees", path: "/admin-dashboard/fees" },
     { name: "Reports", path: "/admin-dashboard/reports" },
     { name: "Timetable", path: "/admin-dashboard/time-table" },
+    { name: "Settings", path: "/admin-dashboard/settings" },
   ];
   return (
     <>
