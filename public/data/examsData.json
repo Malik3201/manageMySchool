@@ -1,0 +1,65 @@
+[
+  {
+    "class": "Class 6",
+    "section": "A",
+    "subject": "Mathematics",
+    "date": "2025-08-10",
+    "time": "09:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "A",
+    "subject": "English",
+    "date": "2025-08-12",
+    "time": "09:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "A",
+    "subject": "Science",
+    "date": "2025-08-14",
+    "time": "09:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "B",
+    "subject": "Mathematics",
+    "date": "2025-08-10",
+    "time": "11:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "B",
+    "subject": "English",
+    "date": "2025-08-12",
+    "time": "11:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "B",
+    "subject": "Science",
+    "date": "2025-08-14",
+    "time": "11:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "C",
+    "subject": "Mathematics",
+    "date": "2025-08-10",
+    "time": "13:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "C",
+    "subject": "English",
+    "date": "2025-08-12",
+    "time": "13:00"
+  },
+  {
+    "class": "Class 6",
+    "section": "C",
+    "subject": "Science",
+    "date": "2025-08-14",
+    "time": "13:00"
+  }
+]
