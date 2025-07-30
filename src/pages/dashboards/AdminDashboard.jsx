@@ -2,7 +2,7 @@ import Sidebar from "../../components/Sidebar";
 // import Attendance from "../Attendence";
 import Exams from "../Exams";
 import Fees from "../Fees";
-import NoticeBoard from "../NoticeBoard";
+import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
 import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";
 import ClassManagement from "../../modules/classes/ClassManagement";
