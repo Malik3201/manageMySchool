@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const PasswordModal = ({ changePassHandler, setIsPassModalOpen }) => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
