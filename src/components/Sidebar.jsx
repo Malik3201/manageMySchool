@@ -26,6 +26,7 @@ const Sidebar = () => {
     { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
     { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
     { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
+
   ];
 
   return (
