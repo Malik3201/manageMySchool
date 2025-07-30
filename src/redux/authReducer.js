@@ -24,10 +24,10 @@ const authReducer = createSlice({
   name: "authReducer",
   initialState: {
     errors: null,
-    isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,
-    userId: null,
-    userRole: null,
     isLoading: false,
+    isLoggedIn: JSON.parse(localStorage.getItem("isLoggedIn")) || false,
+    userId: JSON.parse(localStorage.getItem("userId")) || null,
+    userRole: JSON.parse(localStorage.getItem("userRole")) || null,
   },
   reducers: {
     logOut: (state) => {
