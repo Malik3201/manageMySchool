@@ -1,6 +1,4 @@
 import Sidebar from "../../components/Sidebar";
-import Exams from "../Exams";
-import Fees from "../Fees";
 import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
 import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";

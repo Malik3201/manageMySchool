@@ -28,7 +28,6 @@ const Reports = () => {
   console.log(report);
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-50 py-10 px-4">
-      {/* Search Card */}
       <div className="w-full max-w-md bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4">
         <h2 className="text-2xl font-bold text-gray-700 text-center">
           Student Report Search
@@ -46,7 +45,6 @@ const Reports = () => {
         </div>
       </div>
 
-      {/* Report Section */}
       <div className="mt-8 w-full max-w-2xl">
         {report && report.length > 0 ? (
           <ReportCard report={report} />

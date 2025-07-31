@@ -21,10 +21,10 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute allowedRoles={["student"]} />}>
           {" "}
-          <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route path="/student-dashboard/*" element={<StudentDashboard />} />
         </Route>
         <Route element={<ProtectedRoute allowedRoles={["parent"]} />}>
-          <Route path="/parent-dashboard" element={<ParentDashboard />} />
+          <Route path="/parent-dashboard/*" element={<ParentDashboard />} />
         </Route>
         <Route path="/not-authorized" element={<NotAuthorized />} />
       </Routes>
