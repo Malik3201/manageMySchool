@@ -8,30 +8,99 @@ const Sidebar = () => {
 
   const dispatch = useDispatch();
 
-  const links = [
-    { name: "Notice Board", path: `/${getUserRole}-dashboard/notice-board` },
-    { name: "Students", path: `/${getUserRole}-dashboard/students` },
-    { name: "Teachers", path: `/${getUserRole}-dashboard/teachers` },
-    { name: "Classes", path: `/${getUserRole}-dashboard/classes` },
-    {
-      name: "Student-Attendance",
-      path: `/${getUserRole}-dashboard/attendance/student-attendance`,
-    },
-    {
-      name: "Teacher-Attendance",
-      path: `/${getUserRole}-dashboard/attendance/teacher-attendance`,
-    },
-    { name: "Exams", path: `/${getUserRole}-dashboard/exams` },
-    { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
-    { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
-    { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
-    { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
-  ];
+  const filterPaths = () => {
+    switch (getUserRole) {
+      case "admin":
+        return [
+          {
+            name: "Notice Board",
+            path: `/${getUserRole}-dashboard/notice-board`,
+          },
+          { name: "Students", path: `/${getUserRole}-dashboard/students` },
+          { name: "Teachers", path: `/${getUserRole}-dashboard/teachers` },
+          { name: "Classes", path: `/${getUserRole}-dashboard/classes` },
+          {
+            name: "Student-Attendance",
+            path: `/${getUserRole}-dashboard/attendance/student-attendance`,
+          },
+          {
+            name: "Teacher-Attendance",
+            path: `/${getUserRole}-dashboard/attendance/teacher-attendance`,
+          },
+          { name: "Exams", path: `/${getUserRole}-dashboard/exams` },
+          { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
+          { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
+          { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
+          { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
+        ];
+      case "teacher":
+        return [
+          {
+            name: "Notice Board",
+            path: `/${getUserRole}-dashboard/notice-board`,
+          },
+          { name: "Classes", path: `/${getUserRole}-dashboard/classes` },
+          { name: "Exams", path: `/${getUserRole}-dashboard/exams` },
+          { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
+          { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
+          { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
+        ];
+      case "student":
+        return [
+          {
+            name: "Notice Board",
+            path: `/${getUserRole}-dashboard/notice-board`,
+          },
+          {
+            name: "Student-Attendance",
+            path: `/${getUserRole}-dashboard/attendance/student-attendance`,
+          },
+          { name: "Exams", path: `/${getUserRole}-dashboard/exams` },
+          { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
+          { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
+          { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
+        ];
+      case "parent":
+        return [
+          {
+            name: "Notice Board",
+            path: `/${getUserRole}-dashboard/notice-board`,
+          },
+          {
+            name: "Student-Attendance",
+            path: `/${getUserRole}-dashboard/attendance/student-attendance`,
+          },
+          { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
+          { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
+          { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
+          { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
+        ];
+      default:
+        return [];
+    }
+  };
+
+  const links = filterPaths();
+
+  const getRoleName = () => {
+    switch (getUserRole) {
+      case "admin":
+        return "Admin";
+      case "teacher":
+        return "Teacher";
+      case "student":
+        return "Student";
+      case "parent":
+        return "Parent";
+      default:
+        return "";
+    }
+  };
 
   return (
     <>
       <div className=" w-64 bg-white shadow-md p-4">
-        <h2 className="text-xl font-bold mb-6">Admin Panel</h2>
+        <h2 className="text-xl font-bold mb-6">{getRoleName()} Panel</h2>
         <nav className="flex flex-col gap-2 justify-around">
           {links.map((link) => (
             <NavLink

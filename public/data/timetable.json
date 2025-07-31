@@ -7,216 +7,138 @@
         {
           "time": "09:00 - 09:45",
           "subject": "English",
-          "teacher": "Mrs. Ayesha Khan"
+          "teacher": "Sara Khan",
+          "teacherId": 2
         },
-        { "time": "09:45 - 10:30", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Science", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        {
-          "time": "11:45 - 12:30",
-          "subject": "Literature",
-          "teacher": "Mrs. Ayesha Khan"
-        },
-        { "time": "12:30 - 01:15", "subject": "Urdu", "teacher": "TBD" },
-        {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Tuesday": [
-        { "time": "09:00 - 09:45", "subject": "Mathematics", "teacher": "TBD" },
         {
           "time": "09:45 - 10:30",
-          "subject": "English",
-          "teacher": "Mrs. Ayesha Khan"
-        },
-        { "time": "10:30 - 11:15", "subject": "Urdu", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        { "time": "11:45 - 12:30", "subject": "Science", "teacher": "TBD" },
-        {
-          "time": "12:30 - 01:15",
-          "subject": "Literature",
-          "teacher": "Mrs. Ayesha Khan"
-        },
-        {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Wednesday": [
-        {
-          "time": "09:00 - 09:45",
-          "subject": "Literature",
-          "teacher": "Mrs. Ayesha Khan"
-        },
-        { "time": "09:45 - 10:30", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Science", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        {
-          "time": "11:45 - 12:30",
-          "subject": "English",
-          "teacher": "Mrs. Ayesha Khan"
-        },
-        { "time": "12:30 - 01:15", "subject": "Urdu", "teacher": "TBD" },
-        {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Thursday": [
-        { "time": "09:00 - 09:45", "subject": "Science", "teacher": "TBD" },
-        {
-          "time": "09:45 - 10:30",
-          "subject": "English",
-          "teacher": "Mrs. Ayesha Khan"
+          "subject": "Mathematics",
+          "teacher": "Mr. Ahmed",
+          "teacherId": 3
         },
         {
           "time": "10:30 - 11:15",
-          "subject": "Literature",
-          "teacher": "Mrs. Ayesha Khan"
+          "subject": "Science",
+          "teacher": "Ms. Fatima",
+          "teacherId": 4
         },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        { "time": "11:45 - 12:30", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "12:30 - 01:15", "subject": "Urdu", "teacher": "TBD" },
         {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Friday": [
-        {
-          "time": "09:00 - 09:45",
-          "subject": "English",
-          "teacher": "Mrs. Ayesha Khan"
+          "time": "11:15 - 11:45",
+          "subject": "Break",
+          "teacher": null,
+          "teacherId": null
         },
-        { "time": "09:45 - 10:30", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Science", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
         {
           "time": "11:45 - 12:30",
-          "subject": "Computer Science",
-          "teacher": "TBD"
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
         },
         {
           "time": "12:30 - 01:15",
-          "subject": "Literature",
-          "teacher": "Mrs. Ayesha Khan"
+          "subject": "Urdu",
+          "teacher": "TBD",
+          "teacherId": null
         },
-        { "time": "01:15 - 02:00", "subject": "Urdu", "teacher": "TBD" }
+        {
+          "time": "01:15 - 02:00",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        }
+      ],
+      "Tuesday": [
+        {
+          "time": "09:00 - 09:45",
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "09:45 - 10:30",
+          "subject": "Mathematics",
+          "teacher": "Mr. Ahmed",
+          "teacherId": 3
+        },
+        {
+          "time": "10:30 - 11:15",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "11:15 - 11:45",
+          "subject": "Break",
+          "teacher": null,
+          "teacherId": null
+        },
+        {
+          "time": "11:45 - 12:30",
+          "subject": "Science",
+          "teacher": "Ms. Fatima",
+          "teacherId": 4
+        },
+        {
+          "time": "12:30 - 01:15",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "01:15 - 02:00",
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        }
       ]
     }
   },
   {
-    "class": "Class 6",
+    "class": "Class 8",
     "section": "B",
     "schedule": {
       "Monday": [
         {
           "time": "09:00 - 09:45",
-          "subject": "Islamiat",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        { "time": "09:45 - 10:30", "subject": "Science", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        { "time": "11:45 - 12:30", "subject": "Urdu", "teacher": "TBD" },
-        {
-          "time": "12:30 - 01:15",
-          "subject": "Pakistan Studies",
-          "teacher": "Mrs. Rabia Tariq"
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
         },
         {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Tuesday": [
-        { "time": "09:00 - 09:45", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "09:45 - 10:30", "subject": "Urdu", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Science", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
+          "time": "09:45 - 10:30",
+          "subject": "Mathematics",
+          "teacher": "Mr. Bilal",
+          "teacherId": 5
+        },
+        {
+          "time": "10:30 - 11:15",
+          "subject": "Science",
+          "teacher": "Ms. Fatima",
+          "teacherId": 4
+        },
+        {
+          "time": "11:15 - 11:45",
+          "subject": "Break",
+          "teacher": null,
+          "teacherId": null
+        },
         {
           "time": "11:45 - 12:30",
-          "subject": "Pakistan Studies",
-          "teacher": "Mrs. Rabia Tariq"
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
         },
         {
           "time": "12:30 - 01:15",
-          "subject": "Islamiat",
-          "teacher": "Mrs. Rabia Tariq"
+          "subject": "Computer Science",
+          "teacher": "Mr. Imran",
+          "teacherId": 6
         },
         {
           "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Wednesday": [
-        {
-          "time": "09:00 - 09:45",
-          "subject": "Islamiat",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        { "time": "09:45 - 10:30", "subject": "Science", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        { "time": "11:45 - 12:30", "subject": "Urdu", "teacher": "TBD" },
-        {
-          "time": "12:30 - 01:15",
-          "subject": "Pakistan Studies",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Thursday": [
-        { "time": "09:00 - 09:45", "subject": "Urdu", "teacher": "TBD" },
-        { "time": "09:45 - 10:30", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Science", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        {
-          "time": "11:45 - 12:30",
-          "subject": "Pakistan Studies",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        {
-          "time": "12:30 - 01:15",
-          "subject": "Islamiat",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
-        }
-      ],
-      "Friday": [
-        { "time": "09:00 - 09:45", "subject": "Mathematics", "teacher": "TBD" },
-        { "time": "09:45 - 10:30", "subject": "Science", "teacher": "TBD" },
-        { "time": "10:30 - 11:15", "subject": "Urdu", "teacher": "TBD" },
-        { "time": "11:15 - 11:45", "subject": "Break", "teacher": null },
-        {
-          "time": "11:45 - 12:30",
-          "subject": "Pakistan Studies",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        {
-          "time": "12:30 - 01:15",
-          "subject": "Islamiat",
-          "teacher": "Mrs. Rabia Tariq"
-        },
-        {
-          "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD"
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
         }
       ]
     }
