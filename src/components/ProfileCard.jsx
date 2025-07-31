@@ -3,6 +3,7 @@ import PasswordModal from "./PasswordModal";
 
 const ProfileCard = ({ role, data }) => {
   if (!data) return null;
+
   const [showPassword, setShowPassword] = useState(false);
   const [isPassModalOpen, setIsPassModalOpen] = useState(false);
   const [currentPass, setCurrentPass] = useState(data.password);
@@ -14,6 +15,7 @@ const ProfileCard = ({ role, data }) => {
   const changePassHandler = (updatedPass) => {
     setCurrentPass(updatedPass);
   };
+
   const renderPass = () => {
     return (
       <>
@@ -62,11 +64,11 @@ const ProfileCard = ({ role, data }) => {
               <strong>Address:</strong> {data.address}
             </p>
             <p>
-              <strong>Subjects:</strong> {data.subjects.join(", ")}
+              <strong>Subjects:</strong> {data?.subjects?.join(", ") || "N/A"}
             </p>
             <p>
               <strong>Assigned Classes:</strong>{" "}
-              {data.assignedClasses.join(", ")}
+              {data?.assignedClasses?.join(", ") || "N/A"}
             </p>
           </>
         );

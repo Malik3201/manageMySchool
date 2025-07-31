@@ -1,5 +1,4 @@
 import Sidebar from "../../components/Sidebar";
-// import Attendance from "../Attendence";
 import Exams from "../Exams";
 import Fees from "../Fees";
 import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
@@ -9,13 +8,12 @@ import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
-import AttendanceManagement from "../../modules/Attendance/StudentAttendance";
-// import AttendanceManagement from "../../modules/Attendance/AttendanceManagement";
 import TimeTableSection from "../TimeTableSection";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
 import StudentAttendance from "../../modules/Attendance/StudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
+
 import Settings from "../Settings";
 const AdminDashboard = () => {
   return (
@@ -40,7 +38,8 @@ const AdminDashboard = () => {
               />
 
               <Route path="exams" element={<ExamsManagement />} />
-              <Route path="fees" element={<FeesManagement/>} />
+              <Route path="fees" element={<FeesManagement />} />
+
               <Route path="notice-board" element={<NoticeBoard />} />
               <Route path="reports" element={<Reports />} />
               <Route path="time-table" element={<TimeTableSection />} />

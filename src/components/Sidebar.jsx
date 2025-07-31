@@ -2,22 +2,32 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "../redux/authReducer";
 import Button from "./Button";
-const Sidebar = () => {
-  const dispatch = useDispatch();
-  const links = [
-    { name: "Notice Board", path: "/admin-dashboard/notice-board" },
-    { name: "Students", path: "/admin-dashboard/students" },
-    { name: "Teachers", path: "/admin-dashboard/teachers" },
-    { name: "Classes", path: "/admin-dashboard/classes" },
-    
-    { name: "Student-Attendance", path: "/admin-dashboard/attendance/student-attendance" },
-    { name: "Teacher-Attendance", path: "/admin-dashboard/attendance/teacher-attendance" },
 
-    { name: "Exams", path: "/admin-dashboard/exams" },
-    { name: "Fees", path: "/admin-dashboard/fees" },
-    { name: "Reports", path: "/admin-dashboard/reports" },
-    { name: "Timetable", path: "/admin-dashboard/time-table" },
+const Sidebar = () => {
+  const getUserRole = JSON.parse(localStorage.getItem("userRole"));
+
+  const dispatch = useDispatch();
+
+  const links = [
+    { name: "Notice Board", path: `/${getUserRole}-dashboard/notice-board` },
+    { name: "Students", path: `/${getUserRole}-dashboard/students` },
+    { name: "Teachers", path: `/${getUserRole}-dashboard/teachers` },
+    { name: "Classes", path: `/${getUserRole}-dashboard/classes` },
+    {
+      name: "Student-Attendance",
+      path: `/${getUserRole}-dashboard/attendance/student-attendance`,
+    },
+    {
+      name: "Teacher-Attendance",
+      path: `/${getUserRole}-dashboard/attendance/teacher-attendance`,
+    },
+    { name: "Exams", path: `/${getUserRole}-dashboard/exams` },
+    { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
+    { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
+    { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
+    { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
   ];
+
   return (
     <>
       <div className=" w-64 bg-white shadow-md p-4">
