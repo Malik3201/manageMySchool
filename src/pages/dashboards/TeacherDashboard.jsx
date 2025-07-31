@@ -1,6 +1,5 @@
 import Sidebar from "../../components/Sidebar";
 import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
-import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";
 import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
@@ -13,6 +12,7 @@ import Settings from "../Settings";
 import TeacherNoticeBoard from "../../TeacherModules/TeacherNoticeBoard";
 import TeacherExam from "../../TeacherModules/TeacherExam";
 import ClassAttendance from "../../TeacherModules/ClassAttendance";
+import CreateReport from "../CreateReport";
 
 const TeacherDashboard = () => {
   return (
@@ -42,7 +42,7 @@ const TeacherDashboard = () => {
 
               <Route path="notice-board" element={<TeacherNoticeBoard />} />
 
-              <Route path="reports" element={<Reports />} />
+              <Route path="reports" element={<CreateReport/>} />
               <Route path="time-table" element={<TeachersTimetable />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
