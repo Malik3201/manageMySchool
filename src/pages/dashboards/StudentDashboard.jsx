@@ -13,6 +13,8 @@ import FeesManagement from "../../modules/Fees/FeesManagement";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
 
 import Settings from "../Settings";
+import StudentNoticeBoard from "../../StudentModules/StudentNoticeBoard";
+import StudentExams from "../../StudentModules/StudentExams";
 const StudentDashboard = () => {
   return (
     <>
@@ -35,10 +37,10 @@ const StudentDashboard = () => {
                 element={<TeacherAttendance />}
               />
 
-              <Route path="exams" element={<ExamsManagement />} />
+              <Route path="exams" element={<StudentExams />} />
               <Route path="fees" element={<FeesManagement />} />
 
-              <Route path="notice-board" element={<NoticeBoard />} />
+              <Route path="notice-board" element={<StudentNoticeBoard />} />
               <Route path="reports" element={<Reports />} />
               <Route path="time-table" element={<TimeTableSection />} />
               <Route path="settings" element={<Settings />} />
