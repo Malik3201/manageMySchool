@@ -13,6 +13,7 @@ import FeesManagement from "../../modules/Fees/FeesManagement";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
 
 import Settings from "../Settings";
+import ChildFees from "../../ParentModule/ChildFees";
 const ParentDashboard = () => {
   return (
     <>
@@ -36,7 +37,7 @@ const ParentDashboard = () => {
               />
 
               <Route path="exams" element={<ExamsManagement />} />
-              <Route path="fees" element={<FeesManagement />} />
+              <Route path="fees" element={<ChildFees />} />
 
               <Route path="notice-board" element={<NoticeBoard />} />
               <Route path="reports" element={<Reports />} />
