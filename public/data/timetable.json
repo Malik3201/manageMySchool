@@ -7,20 +7,20 @@
         {
           "time": "09:00 - 09:45",
           "subject": "English",
-          "teacher": "Mrs. Ayesha Khan",
-          "teacherId": 1
+          "teacher": "Sara Khan",
+          "teacherId": 2
         },
         {
           "time": "09:45 - 10:30",
           "subject": "Mathematics",
-          "teacher": "TBD",
-          "teacherId": null
+          "teacher": "Mr. Ahmed",
+          "teacherId": 3
         },
         {
           "time": "10:30 - 11:15",
           "subject": "Science",
-          "teacher": "TBD",
-          "teacherId": null
+          "teacher": "Ms. Fatima",
+          "teacherId": 4
         },
         {
           "time": "11:15 - 11:45",
@@ -31,8 +31,8 @@
         {
           "time": "11:45 - 12:30",
           "subject": "Literature",
-          "teacher": "Mrs. Ayesha Khan",
-          "teacherId": 1
+          "teacher": "Sara Khan",
+          "teacherId": 2
         },
         {
           "time": "12:30 - 01:15",
@@ -42,9 +42,103 @@
         },
         {
           "time": "01:15 - 02:00",
-          "subject": "Computer Science",
-          "teacher": "TBD",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        }
+      ],
+      "Tuesday": [
+        {
+          "time": "09:00 - 09:45",
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "09:45 - 10:30",
+          "subject": "Mathematics",
+          "teacher": "Mr. Ahmed",
+          "teacherId": 3
+        },
+        {
+          "time": "10:30 - 11:15",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "11:15 - 11:45",
+          "subject": "Break",
+          "teacher": null,
           "teacherId": null
+        },
+        {
+          "time": "11:45 - 12:30",
+          "subject": "Science",
+          "teacher": "Ms. Fatima",
+          "teacherId": 4
+        },
+        {
+          "time": "12:30 - 01:15",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "01:15 - 02:00",
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        }
+      ]
+    }
+  },
+  {
+    "class": "Class 8",
+    "section": "B",
+    "schedule": {
+      "Monday": [
+        {
+          "time": "09:00 - 09:45",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "09:45 - 10:30",
+          "subject": "Mathematics",
+          "teacher": "Mr. Bilal",
+          "teacherId": 5
+        },
+        {
+          "time": "10:30 - 11:15",
+          "subject": "Science",
+          "teacher": "Ms. Fatima",
+          "teacherId": 4
+        },
+        {
+          "time": "11:15 - 11:45",
+          "subject": "Break",
+          "teacher": null,
+          "teacherId": null
+        },
+        {
+          "time": "11:45 - 12:30",
+          "subject": "Literature",
+          "teacher": "Sara Khan",
+          "teacherId": 2
+        },
+        {
+          "time": "12:30 - 01:15",
+          "subject": "Computer Science",
+          "teacher": "Mr. Imran",
+          "teacherId": 6
+        },
+        {
+          "time": "01:15 - 02:00",
+          "subject": "English",
+          "teacher": "Sara Khan",
+          "teacherId": 2
         }
       ]
     }
