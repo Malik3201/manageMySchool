@@ -2,14 +2,14 @@
   {
     "class": "Class 6",
     "section": "A",
-    "subject": "Mathematics",
+    "subject": "Literature",
     "date": "2025-08-10",
     "time": "09:00"
   },
   {
     "class": "Class 6",
-    "section": "A",
-    "subject": "English",
+    "section": "B",
+    "subject": "Islamiat",
     "date": "2025-08-12",
     "time": "09:00"
   },
@@ -21,9 +21,9 @@
     "time": "09:00"
   },
   {
-    "class": "Class 6",
-    "section": "B",
-    "subject": "Mathematics",
+    "class": "Class 7",
+    "section": "A",
+    "subject": "Pakistan Studies",
     "date": "2025-08-10",
     "time": "11:00"
   },
@@ -56,9 +56,9 @@
     "time": "13:00"
   },
   {
-    "class": "Class 6",
-    "section": "C",
-    "subject": "Science",
+    "class": "Class 8",
+    "section": "B",
+    "subject": "English",
     "date": "2025-08-14",
     "time": "13:00"
   }

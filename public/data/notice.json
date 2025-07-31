@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2025-07-24",
+    "id": 1753949213368,
+    "notice": "All students are strictly avoid leaves",
+    "time": "13:06",
+    "type": "Warning"
+  },
+  {
+    "date": "2025-07-25",
+    "id": 1753949213369,
+    "notice": "Library will be closed on Sunday",
+    "time": "09:00",
+    "type": "Information"
+  },
+  {
+    "date": "2025-07-26",
+    "id": 1753949213370,
+    "notice": "Midterm exams start from August 5",
+    "time": "10:30",
+    "type": "Alert"
+  },
+  {
+    "date": "2025-07-27",
+    "id": 1753949213371,
+    "notice": "Hostel entry after 10 PM is not allowed",
+    "time": "18:45",
+    "type": "Warning"
+  },
+  {
+    "date": "2025-07-28",
+    "id": 1753949213372,
+    "notice": "Annual sports day will be held on August 15",
+    "time": "14:20",
+    "type": "Event"
+  }
+]
