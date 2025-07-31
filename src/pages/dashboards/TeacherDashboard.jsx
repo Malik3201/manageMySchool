@@ -1,4 +1,3 @@
-
 import Sidebar from "../../components/Sidebar";
 import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
 import Reports from "../Reports";
@@ -17,6 +16,7 @@ import Settings from "../Settings";
 import TeacherNoticeBoard from "../../TeacherModules/TeacherNoticeBoard";
 import TeacherExam from "../../TeacherModules/TeacherExam";
 import ClassAttendance from "../../TeacherModules/ClassAttendance";
+
 const TeacherDashboard = () => {
   return (
     <>
@@ -36,6 +36,7 @@ const TeacherDashboard = () => {
               />
               <Route
                 path="attendance/teacher-Attendance"
+
                 element={<ClassAttendance />}
               />
 
@@ -43,6 +44,7 @@ const TeacherDashboard = () => {
               <Route path="fees" element={<FeesManagement />} />
 
               <Route path="notice-board" element={<TeacherNoticeBoard />} />
+
               <Route path="reports" element={<Reports />} />
               <Route path="time-table" element={<TimeTableSection />} />
               <Route path="settings" element={<Settings />} />
