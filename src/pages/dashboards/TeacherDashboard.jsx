@@ -6,13 +6,13 @@ import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
-import TimeTableSection from "../TimeTableSection";
+import TeachersTimetable from "../TeachersTimetable";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
 import StudentAttendance from "../../modules/Attendance/StudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
-
 import Settings from "../Settings";
+
 const TeacherDashboard = () => {
   return (
     <>
@@ -40,7 +40,7 @@ const TeacherDashboard = () => {
 
               <Route path="notice-board" element={<NoticeBoard />} />
               <Route path="reports" element={<Reports />} />
-              <Route path="time-table" element={<TimeTableSection />} />
+              <Route path="time-table" element={<TeachersTimetable />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
           </div>
