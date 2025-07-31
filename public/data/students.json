@@ -1,7 +1,7 @@
 [
   {
     "id": 101,
-    "name": "Ahsan Haider",
+    "name": "Ahsan Usman",
     "rollNumber": "6-A-01",
     "class": "Class 6",
     "section": "A",
@@ -10,7 +10,8 @@
     "guardian": "Qureshi Ahmed",
     "contact": "0300-5371606",
     "address": "691 Lyari Town, Karachi",
-    "profileImage": "/images/students/default-male.jpg"
+    "profileImage": "/images/students/default-male.jpg",
+    "feesStatus" : "UnPaid"
   },
   {
     "id": 102,
