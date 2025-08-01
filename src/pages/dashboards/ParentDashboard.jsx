@@ -28,32 +28,16 @@ const ParentDashboard = () => {
                 index
                 element={
                   <Navigate
-                    to={
-                      currentUserRole === "parent"
-                        ? "student-attendance"
-                        : "notice-board"
-                    }
+                    to={currentUserRole === "parent" ? "fees" : "notice-board"}
                     replace
                   />
                 }
               />
-              <Route path="students" element={<StudentManagement />} />
-              <Route path="teachers" element={<TeacherManagement />} />
-              <Route path="classes" element={<ClassManagement />} />
-
+              <Route path="fees" element={<ChildFees />} />
               <Route
                 path="attendance/student-Attendance"
                 element={<StudentAttendance />}
               />
-              <Route
-                path="attendance/teacher-Attendance"
-                element={<TeacherAttendance />}
-              />
-
-              <Route path="exams" element={<ExamsManagement />} />
-              <Route path="fees" element={<ChildFees />} />
-
-              <Route path="notice-board" element={<NoticeBoard />} />
               <Route path="reports" element={<ParentReport />} />
               <Route path="time-table" element={<ParentTimetable />} />
               <Route path="settings" element={<Settings />} />

@@ -62,11 +62,11 @@ const Sidebar = () => {
         ];
       case "parent":
         return [
+          { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
           {
             name: "Student-Attendance",
             path: `/${getUserRole}-dashboard/attendance/student-attendance`,
           },
-          { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
           { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
           { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },
           { name: "Settings", path: `/${getUserRole}-dashboard/settings` },
