@@ -13,6 +13,7 @@ import Settings from "../Settings";
 import ChildFees from "../../ParentModule/ChildFees";
 import ParentReport from "../ParentReport";
 import ParentTimetable from "../ParentTimeTable";
+import ViewChildAttendance from "../../TeacherModules/ViewChildAttendance";
 const ParentDashboard = () => {
   return (
     <>
@@ -28,7 +29,7 @@ const ParentDashboard = () => {
 
               <Route
                 path="attendance/student-Attendance"
-                element={<StudentAttendance />}
+                element={<ViewChildAttendance />}
               />
               <Route
                 path="attendance/teacher-Attendance"
