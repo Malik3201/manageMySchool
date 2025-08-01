@@ -1,81 +1,96 @@
 import { useEffect, useState } from "react";
 import Table from "../components/Table";
 
-function ViewChildAttendance() {
-  const [children, setChildren] = useState([]);
+function ViewStudentAttendance() {
+  const [childrenData, setChildrenData] = useState([]);
   const parentID = JSON.parse(localStorage.getItem("userId"));
 
   useEffect(() => {
     async function fetchData() {
-      const userRes = await fetch("/data/users.json");
-      const attendanceRes = await fetch("/data/studentAttendanceData.json");
-      const users = await userRes.json();
-      const attendanceData = await attendanceRes.json();
+      try {
+        const [usersRes, studentsRes, attendanceRes] = await Promise.all([
+          fetch("/data/users.json"),
+          fetch("/data/students.json"),
+          fetch("/data/studentAttendanceData.json"),
+        ]);
 
-      const parent = users.find(u => u.id === parentID);
+        const users = await usersRes.json();
+        const students = await studentsRes.json();
+        const attendanceData = await attendanceRes.json();
 
-      if (parent?.childrenID?.length > 0) {
-        const childDetails = parent.childrenID.map(childId => {
-          const student = users.find(u => u.id === childId);
-          const attendance = attendanceData.find(a => a.studentId === childId);
+        const parent = users.find((u) => u.id === parentID);
 
-          const total = attendance?.attendance?.length || 0;
-          const presentCount = attendance?.attendance?.filter(a => a.status === "present").length || 0;
-          const percentage = total > 0 ? ((presentCount / total) * 100).toFixed(0) : 0;
+        if (!parent || !Array.isArray(parent.childrenID)) return;
 
-          const message =
-            presentCount > total - presentCount && presentCount > 3
-              ? "Very good Attendance Progress of this month"
-              : "Very bad Attendance Progress of this month";
+       
+        const mappedChildren = parent.childrenID.map((childId) => {
+          const student = students.find((s) => s.id === childId);
+          const studentAttendance = attendanceData.find(
+            (a) => a.studentId === childId
+          );
+
+          const attendance = studentAttendance?.attendance || [];
+
+          const total = attendance.length;
+          const present = attendance.filter((a) => a.status === "present").length;
+          const percent = total > 0 ? Math.round((present / total) * 100) : 0;
+          const msg =
+            present > (total - present) && present >= 3
+              ? " Very good attendance progress this month"
+              : " Attendance progress needs improvement";
 
           return {
             id: childId,
-            name: student?.name,
-            attendance: attendance?.attendance || [],
+            name: student?.name || "Unknown Student",
+            attendance,
             progress: {
-              msg: message,
-              percntage: percentage
-            }
+              msg,
+              percentage: percent,
+            },
           };
         });
 
-        setChildren(childDetails);
+        setChildrenData(mappedChildren);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
     }
 
     fetchData();
-  }, []);
-
-  const examColumns = [
-    { header: "Date", accessor: "date" },
-    { header: "Attendance", accessor: "status" }
-  ];
+  }, [parentID]);
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 px-4 space-y-10">
-      {children.map(child => (
-        <div key={child.id}>
-          <h1 className="text-3xl font-extrabold text-gray-800 mb-4 text-center">
-            <span className="text-indigo-600">{child.name}</span>
-            <span className="text-gray-800">'s Attendance of This Month</span>
-          </h1>
+    <div className="max-w-4xl mx-auto mt-10 p-6 bg-gradient-to-br from-white via-blue-50 to-blue-100 rounded-3xl shadow-lg border border-blue-200 space-y-8">
+  {childrenData.length === 0 ? (
+    <p className="text-center text-gray-600">No attendance records found.</p>
+  ) : (
+    childrenData.map((child) => (
+      <div key={child.id}>
+        <h2 className="text-2xl font-bold text-blue-900 text-center mb-2">
+          Attendance for <span className="text-blue-600">{child.name}</span>
+        </h2>
 
-          {child.progress?.msg && (
-            <div className="bg-gradient-to-r from-green-100 to-green-200 border border-green-300 rounded-xl p-4 mb-6 shadow-md text-center">
-              <h2 className="text-lg font-semibold text-green-800">{child.progress.msg}</h2>
-              <p className="text-3xl font-bold text-green-900 mt-1">{child.progress.percntage}%</p>
-            </div>
-          )}
-
-          <div className="bg-white shadow-xl rounded-2xl ring-1 ring-gray-200">
-            <div className="overflow-x-auto p-4">
-              <Table columns={examColumns} data={child.attendance} />
-            </div>
-          </div>
+        <div className="bg-blue-100 p-4 rounded-xl border border-blue-200 mb-4 text-center">
+          <p className="text-lg font-medium">{child.progress.msg}</p>
+          <p className="text-3xl font-extrabold text-blue-700 mt-1">
+            {child.progress.percentage}%
+          </p>
         </div>
-      ))}
-    </div>
+
+        <div className="overflow-x-auto bg-white shadow rounded-xl ring-1 ring-gray-200 p-4">
+          <Table
+            columns={[
+              { header: "Date", accessor: "date" },
+              { header: "Attendance", accessor: "status" },
+            ]}
+            data={child.attendance}
+          />
+        </div>
+      </div>
+    ))
+  )}
+</div>
   );
 }
 
-export default ViewChildAttendance;
+export default ViewStudentAttendance;
