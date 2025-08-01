@@ -13,6 +13,7 @@ import Settings from "../Settings";
 import ChildFees from "../../ParentModule/ChildFees";
 import ParentReport from "../ParentReport";
 import ParentTimetable from "../ParentTimeTable";
+import ViewChildAttendance from "../../TeacherModules/ViewChildAttendance";
 const ParentDashboard = () => {
   const currentUserRole = JSON.parse(localStorage.getItem("userRole"));
   console.log(currentUserRole);
@@ -36,7 +37,7 @@ const ParentDashboard = () => {
               <Route path="fees" element={<ChildFees />} />
               <Route
                 path="attendance/student-Attendance"
-                element={<StudentAttendance />}
+                element={<ViewChildAttendance />}
               />
               <Route path="reports" element={<ParentReport />} />
               <Route path="time-table" element={<ParentTimetable />} />

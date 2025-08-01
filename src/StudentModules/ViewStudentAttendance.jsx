@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react"
 import Table from "../components/Table"
 
-function ViewStudentAttendance(){
+export default function ViewStudentAttendance(){
     const [student,setStudent] = useState({})
-    const [attendance,setAttendance] = useState([])
     const [attendanceData, setAttendanceData] = useState({})
     const [progress , setProgress] = useState({})
 
@@ -25,7 +24,6 @@ function ViewStudentAttendance(){
   fetch("/data/studentAttendanceData.json")
     .then(res => res.json())
     .then(data => {
-      setAttendance(data); 
       const getAttendance = data.find(e => e.studentId === studentId);
       setAttendanceData(getAttendance || {});
     })
@@ -98,4 +96,4 @@ return(<>
 </div>
 
 </>)
-}export default ViewStudentAttendance
+}
