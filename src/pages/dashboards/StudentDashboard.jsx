@@ -5,13 +5,14 @@ import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
-import StudentAttendance from "../../modules/Attendance/StudentAttendance";
+// import StudentAttendance from "../../StudentModules/ViewStudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
 import Settings from "../Settings";
 import StudentNoticeBoard from "../../StudentModules/StudentNoticeBoard";
 import StudentExams from "../../StudentModules/StudentExams";
 import StudentReport from "../StudentReport";
 import StudentTimetable from "../StudentTimetable";
+import ViewStudentAttendance from "../../StudentModules/ViewStudentAttendance";
 const StudentDashboard = () => {
   return (
     <>
@@ -27,7 +28,7 @@ const StudentDashboard = () => {
 
               <Route
                 path="attendance/student-Attendance"
-                element={<StudentAttendance />}
+                element={<ViewStudentAttendance />}
               />
               <Route
                 path="attendance/teacher-Attendance"
