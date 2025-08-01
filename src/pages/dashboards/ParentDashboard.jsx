@@ -15,6 +15,9 @@ import ParentReport from "../ParentReport";
 import ParentTimetable from "../ParentTimeTable";
 import ViewChildAttendance from "../../TeacherModules/ViewChildAttendance";
 const ParentDashboard = () => {
+  const currentUserRole = JSON.parse(localStorage.getItem("userRole"));
+  console.log(currentUserRole);
+
   return (
     <>
       <div className="flex h-screen bg-gray-100">
@@ -22,24 +25,20 @@ const ParentDashboard = () => {
         <div className="flex-1 flex flex-col">
           <div className="p-6 overflow-auto">
             <Routes>
-              <Route index element={<Navigate to="notice-board" replace />} />
-              <Route path="students" element={<StudentManagement />} />
-              <Route path="teachers" element={<TeacherManagement />} />
-              <Route path="classes" element={<ClassManagement />} />
-
+              <Route
+                index
+                element={
+                  <Navigate
+                    to={currentUserRole === "parent" ? "fees" : "notice-board"}
+                    replace
+                  />
+                }
+              />
+              <Route path="fees" element={<ChildFees />} />
               <Route
                 path="attendance/student-Attendance"
                 element={<ViewChildAttendance />}
               />
-              <Route
-                path="attendance/teacher-Attendance"
-                element={<TeacherAttendance />}
-              />
-
-              <Route path="exams" element={<ExamsManagement />} />
-              <Route path="fees" element={<ChildFees />} />
-
-              <Route path="notice-board" element={<NoticeBoard />} />
               <Route path="reports" element={<ParentReport />} />
               <Route path="time-table" element={<ParentTimetable />} />
               <Route path="settings" element={<Settings />} />

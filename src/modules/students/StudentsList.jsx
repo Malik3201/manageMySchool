@@ -35,11 +35,10 @@ const StudentsList = () => {
     setUserSearch(value);
 
     const filteredStudent = students.filter((stu) =>
-      stu.name.toLowerCase().includes(value.toLowerCase()) 
+      stu.rollNumber.toLowerCase().includes(value.toLowerCase())
     );
     setStudentsList(filteredStudent);
   };
-  
 
   const closeModal = () => setIsModalOpen(false);
 
@@ -50,8 +49,8 @@ const StudentsList = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    const filteredStudent = students.filter((stu) =>
-      stu.class ===  data.class && stu.section === data.section
+    const filteredStudent = students.filter(
+      (stu) => stu.class === data.class && stu.section === data.section
     );
     setStudentsList(filteredStudent);
   };
@@ -106,7 +105,7 @@ const StudentsList = () => {
           type="text"
           value={userSearch}
           onChange={filterStudents}
-          placeholder="Search by name..."
+          placeholder="Search by roll number..."
           className="border px-3 py-2 rounded"
         />
         <form onSubmit={handleSubmit(onSubmit)}>

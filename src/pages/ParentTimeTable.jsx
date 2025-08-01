@@ -5,6 +5,7 @@ import TimetableTable from "../components/TimetableTable";
 const ParentTimetable = () => {
   const currentUserId = JSON.parse(localStorage.getItem("userId") || "null");
 
+  const [childrenData, setChildrenData] = useState([]);
   const [childrenTimetables, setChildrenTimetables] = useState([]);
 
   useEffect(() => {
@@ -20,18 +21,23 @@ const ParentTimetable = () => {
         const children = studentRes.data.filter((student) =>
           currentParent.childrenID.includes(student.id)
         );
-
-        const classSections = children.map((c) => `${c.class}-${c.section}`);
+        setChildrenData(children);
 
         const timetableRes = await axios.get("/data/timetable.json");
         const allTimetables = timetableRes.data;
 
-        const filteredTimetables = allTimetables.filter((t) =>
-          classSections.includes(`${t.class}-${t.section}`)
-        );
+        const filteredTimetables = children.map((child) => {
+          const childTimetable = allTimetables.find(
+            (t) => t.class === child.class && t.section === child.section
+          );
+          return {
+            ...child,
+            timetable: childTimetable ? childTimetable.schedule : {},
+          };
+        });
 
         setChildrenTimetables(filteredTimetables);
-        console.log("Children Timetables:", filteredTimetables);
+        console.log("Children Timetables with names:", filteredTimetables);
       } catch (error) {
         console.error("Error fetching timetables:", error);
       }
@@ -42,25 +48,18 @@ const ParentTimetable = () => {
 
   return (
     <>
-      {childrenTimetables.map((timetable, index) => {
-
-        const student = {
-          class: timetable.class,
-          section: timetable.section,
-        };
-
-        return (
-          <div
-            key={index}
-            className="mb-8"
-          >
-            <TimetableTable
-              student={student}
-              timetable={timetable.schedule}
-            />
-          </div>
-        );
-      })}
+      {childrenTimetables.map((child, index) => (
+        <div key={index} className="mb-8">
+          <TimetableTable
+            student={{
+              name: child.name,
+              class: child.class,
+              section: child.section,
+            }}
+            timetable={child.timetable}
+          />
+        </div>
+      ))}
     </>
   );
 };

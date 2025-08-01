@@ -10,7 +10,6 @@ const DetailModal = ({ studentId, setDetailModalOpen }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-2xl p-6 animate-fade-in space-y-6">
-        {/* Header */}
         <div className="flex justify-between items-center border-b pb-3">
           <h2 className="text-2xl font-bold text-gray-800">Student Details</h2>
         </div>
@@ -64,8 +63,6 @@ const DetailModal = ({ studentId, setDetailModalOpen }) => {
             </div>
           </div>
         </div>
-
-        {/* Footer */}
         <div className="flex justify-end border-t pt-4">
           <Button variant="secondary" onClick={() => setDetailModalOpen(false)}>
             Close
