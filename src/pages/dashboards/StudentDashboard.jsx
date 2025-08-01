@@ -1,20 +1,17 @@
 import Sidebar from "../../components/Sidebar";
-import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
-import Reports from "../Reports";
 import { Route, Routes } from "react-router-dom";
 import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
-import TimeTableSection from "../TimeTableSection";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
 import StudentAttendance from "../../modules/Attendance/StudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
-import ExamsManagement from "../../modules/Exams/ExamsManagement";
-
 import Settings from "../Settings";
 import StudentNoticeBoard from "../../StudentModules/StudentNoticeBoard";
 import StudentExams from "../../StudentModules/StudentExams";
+import StudentReport from "../StudentReport";
+import StudentTimetable from "../StudentTimetable";
 const StudentDashboard = () => {
   return (
     <>
@@ -41,8 +38,8 @@ const StudentDashboard = () => {
               <Route path="fees" element={<FeesManagement />} />
 
               <Route path="notice-board" element={<StudentNoticeBoard />} />
-              <Route path="reports" element={<Reports />} />
-              <Route path="time-table" element={<TimeTableSection />} />
+              <Route path="reports" element={<StudentReport />} />
+              <Route path="time-table" element={<StudentTimetable />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
           </div>

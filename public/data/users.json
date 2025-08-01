@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 101,
     "name": "Ali Raza",
     "email": "admin@school.com",
     "password": "admin123",
@@ -10,7 +10,7 @@
     "address": "School Office, Karachi"
   },
   {
-    "id": 2,
+    "id": 102,
     "name": "Sara Khan",
     "email": "teacher1@school.com",
     "password": "teacher123",
@@ -22,7 +22,7 @@
     "address": "Gulshan Iqbal, Karachi"
   },
   {
-    "id": 3,
+    "id": 103,
     "name": "Ahmed Ali",
     "email": "student1@school.com",
     "password": "student123",
@@ -38,14 +38,14 @@
     "address": "691 Lyari Town, Karachi"
   },
   {
-    "id": 4,
+    "id": 104,
     "name": "Usman Ahmed",
     "email": "parent1@school.com",
     "password": "parent123",
     "role": "parent",
     "profileImage": "/images/users/parent.jpg",
     "phone": "0300-5555555",
-    "childrenID" : 101
+    "childrenID": [101, 102]
   },
   {
     "id": 5,

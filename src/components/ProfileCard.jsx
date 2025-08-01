@@ -115,7 +115,7 @@ const ProfileCard = ({ role, data }) => {
               <strong>Phone:</strong> {data.phone}
             </p>
             <p>
-              <strong>Children:</strong> {data.children.join(", ")}
+              <strong>Children Ids:</strong> {data.childrenID.join(", ")}
             </p>
           </>
         );
