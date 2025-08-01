@@ -31,7 +31,12 @@ function ClassAttendance() {
     }, []);
   console.log(classes);
 
+  console.log("teacher array : ",teachers);
+
   const teacherId = JSON.parse(localStorage.getItem("userId"));
+  console.log("teacherID :",teacherId);
+  
+  
   const teacher = teachers.find((e) => e.id === teacherId);
   console.log("TeacherObj :", teacher);
   const filterClasses = classes.flatMap((cls) =>
@@ -53,8 +58,8 @@ function ClassAttendance() {
   
   
 
-  useEffect(()=>{
-    const cls = classes.find((cls) => selectedClass.startsWith(cls.className));
+  useEffect(() => {
+  const cls = classes.find((cls) => selectedClass.startsWith(cls.className));
 
   const findStudents = cls
     ? cls.sections.find(
@@ -62,16 +67,20 @@ function ClassAttendance() {
       )?.students || []
     : [];
 
-    const filterStudents = students.filter(e=>findStudents.some(s=>e.id===s))
-  console.log("Filtered Students array by ID",filterStudents);
-  setFilterStudents(filterStudents)
+  const filterStudents = students.filter((e) =>
+    findStudents.some((s) => e.id === s)
+  );
 
-const initialAttendance = {};
-    findStudents.forEach(stu => {
-      initialAttendance[stu.id] = 'Present';
-    });
-    setAttendanceData(initialAttendance);
-  },[selectedClass],[attendanceData])
+  setFilterStudents(filterStudents);
+
+  const initialAttendance = {};
+  findStudents.forEach((stu) => {
+    initialAttendance[stu.id] = "Present";
+  });
+
+  setAttendanceData(initialAttendance);
+}, [selectedClass, students, classes]); // ✅ correct dependency array
+
 
   const handleStatusChange = (id, status) => {
     setAttendanceData(prev => ({ ...prev, [id]: status }));
