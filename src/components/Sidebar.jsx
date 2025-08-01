@@ -63,10 +63,6 @@ const Sidebar = () => {
       case "parent":
         return [
           {
-            name: "Notice Board",
-            path: `/${getUserRole}-dashboard/notice-board`,
-          },
-          {
             name: "Student-Attendance",
             path: `/${getUserRole}-dashboard/attendance/student-attendance`,
           },
