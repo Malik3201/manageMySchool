@@ -28,7 +28,11 @@ const ParentDashboard = () => {
                 index
                 element={
                   <Navigate
-                    to={currentUserRole === "parent" ? "fees" : "notice-board"}
+                    to={
+                      currentUserRole === "parent"
+                        ? "student-attendance"
+                        : "notice-board"
+                    }
                     replace
                   />
                 }
