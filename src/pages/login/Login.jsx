@@ -8,9 +8,12 @@ import Button from "../../components/Button";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn, userRole } = useSelector((state) => state.authReducer);
+  const { isLoggedIn, userRole, errors } = useSelector(
+    (state) => state.authReducer
+  );
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState("");
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -34,16 +37,22 @@ const Login = () => {
     }
   }, [isLoggedIn, userRole, navigate]);
 
+  useEffect(() => {
+    if (errors) {
+      setLoginError(errors);
+    } else {
+      setLoginError("");
+    }
+  }, [errors]);
+
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors },
+    formState: { errors: formErrors },
   } = useForm();
 
   const onSubmit = (credentials) => {
     dispatch(fetchUsers(credentials));
-    reset();
   };
 
   return (
@@ -56,6 +65,12 @@ const Login = () => {
           <p className="text-gray-500">SmartCampus School Portal</p>
         </div>
 
+        {loginError && (
+          <div className="p-3 text-sm text-red-600 bg-red-100 border border-red-300 rounded-md text-center">
+            {loginError}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div className="space-y-1">
             <label className="block text-sm font-medium text-gray-700">
@@ -65,16 +80,15 @@ const Login = () => {
               type="email"
               placeholder="Enter your email"
               className={`w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email ? "border-red-500" : "border-gray-300"
+                formErrors.email ? "border-red-500" : "border-gray-300"
               }`}
               {...register("email", { required: "Email is required" })}
             />
-            {errors.email && (
-              <p className="text-sm text-red-500">{errors.email.message}</p>
+            {formErrors.email && (
+              <p className="text-sm text-red-500">{formErrors.email.message}</p>
             )}
           </div>
 
-          {/* Password Field */}
           <div className="space-y-1 relative">
             <label className="block text-sm font-medium text-gray-700">
               Password
@@ -83,7 +97,7 @@ const Login = () => {
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               className={`w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.password ? "border-red-500" : "border-gray-300"
+                formErrors.password ? "border-red-500" : "border-gray-300"
               }`}
               {...register("password", { required: "Password is required" })}
             />
@@ -94,8 +108,10 @@ const Login = () => {
             >
               {showPassword ? "Hide" : "Show"}
             </button>
-            {errors.password && (
-              <p className="text-sm text-red-500">{errors.password.message}</p>
+            {formErrors.password && (
+              <p className="text-sm text-red-500">
+                {formErrors.password.message}
+              </p>
             )}
           </div>
 
