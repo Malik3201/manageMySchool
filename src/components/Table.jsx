@@ -27,7 +27,13 @@ const Table = ({ columns = [], data = [], actions }) => {
             data.map((row, idx) => (
               <tr
                 key={idx}
-                className="hover:bg-gray-50 border-t border-gray-100"
+                className={`border-t border-gray-100 hover:bg-gray-50 ${
+                  row.status === "present"
+                    ? "bg-green-100"
+                    : row.status === "absent"
+                    ? "bg-red-100"
+                    : ""
+                }`}
               >
                 {columns.map((col, i) => (
                   <td key={i} className="px-4 py-3 whitespace-nowrap">
