@@ -38,6 +38,38 @@
     "address": "691 Lyari Town, Karachi"
   },
   {
+    "id": 101,
+    "name": "Adeel Ahmed",
+    "email": "Adeel@school.com",
+    "password": "adeel123",
+    "role": "student",
+    "profileImage": "/images/students/default-male.jpg",
+    "rollNumber": "6-A-09",
+    "class": "Class 6",
+    "section": "A",
+    "gender": "Male",
+    "dob": "2014-06-28",
+    "guardian": "Qureshi Ahmed",
+    "contact": "0300-5371606",
+    "address": "691 Lyari Town, Karachi"
+  },
+  {
+    "id": 102,
+    "name": "Rehman Ali",
+    "email": "rehman@school.com",
+    "password": "rehman123",
+    "role": "student",
+    "profileImage": "/images/students/default-male.jpg",
+    "rollNumber": "6-A-01",
+    "class": "Class 6",
+    "section": "A",
+    "gender": "Male",
+    "dob": "2014-06-28",
+    "guardian": "Qureshi Ahmed",
+    "contact": "0300-5371606",
+    "address": "691 Lyari Town, Karachi"
+  },
+  {
     "id": 4,
     "name": "Usman Ahmed",
     "email": "parent1@school.com",

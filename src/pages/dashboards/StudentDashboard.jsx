@@ -8,13 +8,14 @@ import { Navigate } from "react-router-dom";
 import StudentManagement from "../../modules/students/StudentManagemant";
 import TimeTableSection from "../TimeTableSection";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
-import StudentAttendance from "../../modules/Attendance/StudentAttendance";
+// import StudentAttendance from "../../StudentModules/ViewStudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
 
 import Settings from "../Settings";
 import StudentNoticeBoard from "../../StudentModules/StudentNoticeBoard";
 import StudentExams from "../../StudentModules/StudentExams";
+import ViewStudentAttendance from "../../StudentModules/ViewStudentAttendance";
 const StudentDashboard = () => {
   return (
     <>
@@ -30,7 +31,7 @@ const StudentDashboard = () => {
 
               <Route
                 path="attendance/student-Attendance"
-                element={<StudentAttendance />}
+                element={<ViewStudentAttendance />}
               />
               <Route
                 path="attendance/teacher-Attendance"
