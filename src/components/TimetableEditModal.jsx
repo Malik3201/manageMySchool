@@ -19,7 +19,7 @@ const TimetableEditModal = ({ setIsModalOpen, schedule, onSave }) => {
   const { register, handleSubmit } = useForm({
     defaultValues: { schedule },
   });
-  
+
   const onSubmit = (data) => {
     onSave(data.schedule);
   };
@@ -55,7 +55,11 @@ const TimetableEditModal = ({ setIsModalOpen, schedule, onSave }) => {
                     {days.map((day) => {
                       const baseName = `schedule.${day}.${periodIndex}`;
                       const breakPeriod = isBreakPeriod(periodIndex);
-                      const current = schedule[day][periodIndex];
+
+                      const current = schedule?.[day]?.[periodIndex] || {
+                        subject: "",
+                        teacher: "",
+                      };
 
                       return (
                         <td key={day} className="border p-2 min-w-[180px]">

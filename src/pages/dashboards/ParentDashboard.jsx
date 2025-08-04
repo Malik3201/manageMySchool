@@ -8,22 +8,30 @@ import StudentManagement from "../../modules/students/StudentManagemant";
 import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
 import StudentAttendance from "../../modules/Attendance/StudentAttendance";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
-
+import { useState } from "react";
 import Settings from "../Settings";
+import { GiHamburgerMenu } from "react-icons/gi";
 import ChildFees from "../../ParentModule/ChildFees";
 import ParentReport from "../ParentReport";
 import ParentTimetable from "../ParentTimeTable";
 import ViewChildAttendance from "../../TeacherModules/ViewChildAttendance";
 const ParentDashboard = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
   const currentUserRole = JSON.parse(localStorage.getItem("userRole"));
   console.log(currentUserRole);
 
   return (
     <>
       <div className="flex h-screen bg-gray-100">
-        <Sidebar />
+        <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
         <div className="flex-1 flex flex-col">
           <div className="p-6 overflow-auto">
+            <button
+              className={`${showSidebar ? "hidden" : "block"} md:hidden`}
+              onClick={() => setShowSidebar(true)}
+            >
+              <GiHamburgerMenu />
+            </button>
             <Routes>
               <Route
                 index

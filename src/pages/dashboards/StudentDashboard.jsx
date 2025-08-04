@@ -1,4 +1,6 @@
 import Sidebar from "../../components/Sidebar";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { Route, Routes } from "react-router-dom";
 import ClassManagement from "../../modules/classes/ClassManagement";
 import TeacherManagement from "../../modules/teacher/TeacherManagement";
@@ -14,12 +16,19 @@ import StudentReport from "../StudentReport";
 import StudentTimetable from "../StudentTimetable";
 import ViewStudentAttendance from "../../StudentModules/ViewStudentAttendance";
 const StudentDashboard = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <>
       <div className="flex h-screen bg-gray-100">
-        <Sidebar />
+        <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
         <div className="flex-1 flex flex-col">
           <div className="p-6 overflow-auto">
+            <button
+              className={`${showSidebar ? "hidden" : "block"} md:hidden`}
+              onClick={() => setShowSidebar(true)}
+            >
+              <GiHamburgerMenu />
+            </button>
             <Routes>
               <Route index element={<Navigate to="notice-board" replace />} />
               <Route path="students" element={<StudentManagement />} />

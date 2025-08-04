@@ -83,7 +83,7 @@ function ClassManagement() {
               </p>
             </div>
      
-            <div className="flex bg-gray-200 rounded-lg p-1">
+            {/* <div className="flex bg-gray-200 rounded-lg p-1">
               <Button
                 variant={viewType === "table" ? "primary" : "outline"}
                 onClick={() => setViewType("table")}
@@ -98,7 +98,7 @@ function ClassManagement() {
               >
                  Card View
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
 

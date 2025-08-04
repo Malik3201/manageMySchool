@@ -3,25 +3,20 @@ import Button from "./Button";
 import TimetableEditModal from "./TimetableEditModal";
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-const periodTime = [
-  "09:00 - 09:45",
-  "09:45 - 10:30",
-  "10:30 - 11:15",
-  "11:15 - 11:45",
-  "11:45 - 12:30",
-  "12:30 - 01:15",
-  "01:15 - 02:00",
-];
 
 const Timetable = ({ classLabel, section, schedule }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentSchedule, setCurrentSchedule] = useState(schedule);
+  const [currentSchedule, setCurrentSchedule] = useState(schedule || {});
 
   const handleSave = (updatedSchedule) => {
     setCurrentSchedule(updatedSchedule);
-
     setIsModalOpen(false);
   };
+
+  const firstDayWithData = days.find((day) => currentSchedule[day]?.length);
+  const periodTime = firstDayWithData
+    ? currentSchedule[firstDayWithData].map((p) => p.time)
+    : [];
 
   return (
     <div className="p-4 bg-white shadow-md rounded-2xl overflow-auto max-w-full">
@@ -55,7 +50,11 @@ const Timetable = ({ classLabel, section, schedule }) => {
               <tr key={time}>
                 <td className="border p-2 font-medium bg-gray-50">{time}</td>
                 {days.map((day) => {
-                  const period = currentSchedule[day][periodIndex];
+                  const daySchedule = currentSchedule[day] || [];
+                  const period = daySchedule[periodIndex] || {
+                    subject: "",
+                    teacher: "",
+                  };
                   const isBreak = period.subject === "Break";
 
                   return (
@@ -71,9 +70,11 @@ const Timetable = ({ classLabel, section, schedule }) => {
                         "Break"
                       ) : (
                         <>
-                          <div className="font-semibold">{period.subject}</div>
+                          <div className="font-semibold">
+                            {period.subject || "-"}
+                          </div>
                           <div className="text-xs text-gray-500">
-                            {period.teacher}
+                            {period.teacher || "-"}
                           </div>
                         </>
                       )}

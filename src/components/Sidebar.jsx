@@ -2,8 +2,9 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logOut } from "../redux/authReducer";
 import Button from "./Button";
+import { IoCloseCircle } from "react-icons/io5";
 
-const Sidebar = () => {
+const Sidebar = ({ showSidebar, setShowSidebar }) => {
   const getUserRole = JSON.parse(localStorage.getItem("userRole"));
 
   const dispatch = useDispatch();
@@ -95,7 +96,17 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className=" w-64 bg-white shadow-md p-4">
+      <div
+        className={`${
+          showSidebar ? "block" : "hidden"
+        } min-h-screen absolute md:static md:block w-64 bg-white shadow-md p-4`}
+      >
+        <div className="md:hidden flex justify-end">
+          <button onClick={() => setShowSidebar(false)}>
+            <IoCloseCircle />
+          </button>
+        </div>
+
         <h2 className="text-xl font-bold mb-6">{getRoleName()} Panel</h2>
         <nav className="flex flex-col gap-2 justify-around">
           {links.map((link) => (
