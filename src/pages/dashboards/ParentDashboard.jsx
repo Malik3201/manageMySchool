@@ -25,21 +25,14 @@ const ParentDashboard = () => {
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
-        <header className="bg-white shadow-sm border-b border-gray-200 px-4 py-3 md:px-6">
+        <header className="md:hidden bg-white shadow-sm border-b border-gray-200 px-4 py-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <button
-                className={`${showSidebar ? "hidden" : "block"} md:hidden bg-gray-100 hover:bg-gray-200 p-2 rounded-lg transition-colors duration-200 z-30`}
-                onClick={() => setShowSidebar(true)}
-              >
-                <GiHamburgerMenu size={20} className="text-gray-600" />
-              </button>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">Parent Dashboard</h1>
-                <p className="text-sm text-gray-500 hidden sm:block">Monitor your child's progress</p>
-              </div>
-            </div>
-
+            <button
+              className="bg-gray-100 hover:bg-gray-200 p-2 rounded-lg transition-colors duration-200"
+              onClick={() => setShowSidebar(true)}
+            >
+              <GiHamburgerMenu size={20} className="text-gray-600" />
+            </button>
             <div className="flex items-center space-x-3">
               <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200">
                 <FaBell size={18} />

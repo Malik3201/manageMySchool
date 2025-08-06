@@ -350,12 +350,12 @@ const StudentsList = () => {
               <div className="bg-gray-50 rounded-xl p-3 sm:p-4 border-2 border-gray-200">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    <ClassesDropdown register={register} errors={errors} />
-                    <SectionsDropdown register={register} errors={errors} />
-                  </div>
+            <ClassesDropdown register={register} errors={errors} />
+            <SectionsDropdown register={register} errors={errors} />
+          </div>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <button
-                      type="submit"
+            type="submit"
                       className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-200"
                     >
                       Apply Filter
@@ -368,7 +368,7 @@ const StudentsList = () => {
                       Clear Filters
                     </button>
                   </div>
-                </form>
+        </form>
               </div>
             )}
           </div>
