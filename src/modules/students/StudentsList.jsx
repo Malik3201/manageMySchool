@@ -155,6 +155,8 @@ const StudentsList = () => {
     { 
       header: "Profile", 
       accessor: "profileImage",
+      minWidth: '200px',
+      width: '30%',
       render: (row) => {
         if (!row) return <div>Loading...</div>;
         
@@ -163,26 +165,63 @@ const StudentsList = () => {
             <img 
               src={row.profileImage || 'https://via.placeholder.com/40'} 
               alt={row.name || 'Student'}
-              className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-gray-200 flex-shrink-0"
               onError={(e) => {
                 e.target.src = 'https://via.placeholder.com/40';
               }}
             />
-            <div>
-              <div className="font-medium text-gray-900">{row.name || 'Unknown'}</div>
-              <div className="text-sm text-gray-500">{row.rollNumber || 'N/A'}</div>
+            <div className="min-w-0">
+              <div className="font-medium text-gray-900 text-sm sm:text-base leading-tight truncate">{row.name || 'Unknown'}</div>
+              <div className="text-xs sm:text-sm text-gray-500 leading-tight truncate">{row.rollNumber || 'N/A'}</div>
             </div>
           </div>
         );
       }
     },
-    { header: "Class", accessor: "class" },
-    { header: "Section", accessor: "section" },
-    { header: "Gender", accessor: "gender" },
+    { 
+      header: "Class", 
+      accessor: "class",
+      minWidth: '80px',
+      width: '15%',
+      render: (row) => (
+        <span className="text-sm font-medium text-gray-900">{row.class || 'N/A'}</span>
+      )
+    },
+    { 
+      header: "Section", 
+      accessor: "section",
+      minWidth: '80px',
+      width: '10%',
+      render: (row) => (
+        <span className="text-sm text-gray-900">{row.section || 'N/A'}</span>
+      )
+    },
+    { 
+      header: "Gender", 
+      accessor: "gender",
+      minWidth: '80px',
+      width: '15%',
+      render: (row) => (
+        <div className="flex items-center space-x-1">
+          {row.gender === 'Male' ? (
+            <FaMale className="w-3 h-3 text-blue-600 flex-shrink-0" />
+          ) : row.gender === 'Female' ? (
+            <FaFemale className="w-3 h-3 text-pink-600 flex-shrink-0" />
+          ) : null}
+          <span className="text-xs sm:text-sm text-gray-900">{row.gender || 'N/A'}</span>
+        </div>
+      )
+    },
     { 
       header: "Guardian", 
       accessor: "guardian",
-      render: (row) => row.guardian || 'N/A'
+      minWidth: '120px',
+      width: '30%',
+      render: (row) => (
+        <div className="text-sm text-gray-900 leading-tight">
+          {row.guardian || 'N/A'}
+        </div>
+      )
     },
   ];
 
@@ -384,7 +423,7 @@ const StudentsList = () => {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="p-6">
             {Array.isArray(studentsList) && studentsList.length > 0 ? (
               <Table columns={columns} data={currentPageData} actions={actions} />
             ) : (

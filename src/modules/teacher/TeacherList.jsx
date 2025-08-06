@@ -159,6 +159,8 @@ const TeacherList = () => {
     { 
       header: "Profile", 
       accessor: "profileImage",
+      minWidth: '220px',
+      width: '35%',
       render: (row) => {
         if (!row) return <div>Loading...</div>;
         
@@ -167,32 +169,51 @@ const TeacherList = () => {
             <img 
               src={row.profileImage || 'https://ui-avatars.com/api/?name=' + (row.name || 'Teacher') + '&background=random&color=fff&size=40'} 
               alt={row.name || 'Teacher'}
-              className="w-10 h-10 rounded-full object-cover border-2 border-gray-200"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-gray-200 flex-shrink-0"
               onError={(e) => {
                 e.target.src = 'https://ui-avatars.com/api/?name=' + (row.name || 'Teacher') + '&background=random&color=fff&size=40';
               }}
             />
-            <div>
-              <div className="font-medium text-gray-900">{row.name || 'Unknown'}</div>
-              <div className="text-sm text-gray-500">{row.email || 'N/A'}</div>
+            <div className="min-w-0">
+              <div className="font-medium text-gray-900 text-sm sm:text-base leading-tight truncate">{row.name || 'Unknown'}</div>
+              <div className="text-xs sm:text-sm text-gray-500 leading-tight truncate">{row.email || 'N/A'}</div>
             </div>
           </div>
         );
       }
     },
-    { header: "Phone", accessor: "phone" },
+    { 
+      header: "Phone", 
+      accessor: "phone",
+      minWidth: '120px',
+      width: '15%',
+      render: (row) => (
+        <div className="text-sm text-gray-900 leading-tight">
+          {row.phone || 'N/A'}
+        </div>
+      )
+    },
     { 
       header: "Subjects", 
       accessor: "subjects",
+      minWidth: '180px',
+      width: '25%',
       render: (row) => {
         const subjects = row.subjects || [];
         return (
-          <div className="flex flex-wrap gap-1">
-            {subjects.map((subject, index) => (
-              <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
-                {subject}
-              </span>
-            ))}
+          <div className="space-y-1">
+            {subjects.length > 0 ? (
+              subjects.slice(0, 2).map((subject, index) => (
+                <span key={index} className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full mr-1">
+                  {subject}
+                </span>
+              ))
+            ) : (
+              <span className="text-gray-500 text-xs">No subjects</span>
+            )}
+            {subjects.length > 2 && (
+              <div className="text-xs text-gray-500">+{subjects.length - 2} more</div>
+            )}
           </div>
         );
       }
@@ -200,15 +221,24 @@ const TeacherList = () => {
     { 
       header: "Classes", 
       accessor: "assignedClasses",
+      minWidth: '180px',
+      width: '25%',
       render: (row) => {
         const classes = row.assignedClasses || [];
         return (
-          <div className="flex flex-wrap gap-1">
-            {classes.map((className, index) => (
-              <span key={index} className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                {className}
-              </span>
-            ))}
+          <div className="space-y-1">
+            {classes.length > 0 ? (
+              classes.slice(0, 2).map((className, index) => (
+                <span key={index} className="inline-block px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full mr-1">
+                  {className}
+                </span>
+              ))
+            ) : (
+              <span className="text-gray-500 text-xs">No classes</span>
+            )}
+            {classes.length > 2 && (
+              <div className="text-xs text-gray-500">+{classes.length - 2} more</div>
+            )}
           </div>
         );
       }
@@ -438,7 +468,7 @@ const TeacherList = () => {
             </div>
           </div>
 
-          <div className="overflow-x-auto">
+          <div className="p-6">
             {Array.isArray(teachersList) && teachersList.length > 0 ? (
               <Table columns={columns} data={currentPageData} actions={actions} />
             ) : (

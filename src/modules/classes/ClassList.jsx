@@ -129,15 +129,17 @@ const ClassList = () => {
   const columns = [
     {
       header: "Class Info",
+      minWidth: '200px',
+      width: '40%',
       render: (row) => (
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-sm">
-            <FaSchool className="w-5 h-5 text-white" />
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-sm flex-shrink-0">
+            <FaSchool className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
-          <div>
-            <div className="font-semibold text-gray-900">{row.className || "Unknown Class"}</div>
-            <div className="text-sm text-gray-500">
-              {row.sections?.length || 0} sections
+          <div className="min-w-0">
+            <div className="font-semibold text-gray-900 text-sm sm:text-base leading-tight truncate">{row.className || "Unknown Class"}</div>
+            <div className="text-xs sm:text-sm text-gray-500 leading-tight">
+              {row.sections?.length || 0} section{(row.sections?.length || 0) !== 1 ? 's' : ''}
             </div>
           </div>
         </div>
@@ -145,30 +147,41 @@ const ClassList = () => {
     },
     {
       header: "Sections",
+      minWidth: '150px',
+      width: '35%',
       render: (row) => (
-        <div className="flex flex-wrap gap-1">
+        <div className="space-y-1">
           {row.sections?.length > 0 ? (
-            row.sections.map((section, index) => (
-              <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-md border border-blue-200">
-                {section.section}
-              </span>
-            ))
+            <>
+              <div className="flex flex-wrap gap-1">
+                {row.sections.slice(0, 3).map((section, index) => (
+                  <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-md border border-blue-200">
+                    {section.section}
+                  </span>
+                ))}
+              </div>
+              {row.sections.length > 3 && (
+                <div className="text-xs text-gray-500">+{row.sections.length - 3} more</div>
+              )}
+            </>
           ) : (
-            <span className="text-gray-500 italic">No sections</span>
+            <span className="text-gray-500 italic text-sm">No sections</span>
           )}
         </div>
       )
     },
     {
       header: "Students",
+      minWidth: '120px',
+      width: '25%',
       render: (row) => {
         const totalStudents = row.sections?.reduce((total, section) => {
           return total + (section.students?.length || 0);
         }, 0) || 0;
         return (
           <div className="flex items-center space-x-2">
-            <FaUsers className="w-4 h-4 text-green-600" />
-            <span className="font-medium text-gray-900">{totalStudents}</span>
+            <FaUsers className="w-3 h-3 sm:w-4 sm:h-4 text-green-600 flex-shrink-0" />
+            <span className="font-medium text-gray-900 text-sm sm:text-base">{totalStudents}</span>
           </div>
         );
       }
@@ -176,22 +189,22 @@ const ClassList = () => {
   ];
 
   const actions = (row) => (
-    <div className="flex items-center space-x-2">
+    <>
       <button
         onClick={() => handleEdit(row)}
-        className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
+        className="p-1.5 sm:p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
         title="Edit Class"
       >
-        <FaEdit className="w-4 h-4" />
+        <FaEdit className="w-3 h-3 sm:w-4 sm:h-4" />
       </button>
       <button
         onClick={() => handleDelete(row.id)}
-        className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
+        className="p-1.5 sm:p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-200"
         title="Delete Class"
       >
-        <FaTrashAlt className="w-4 h-4" />
+        <FaTrashAlt className="w-3 h-3 sm:w-4 sm:h-4" />
       </button>
-    </div>
+    </>
   );
 
   const handleEdit = (classData) => {
@@ -375,13 +388,11 @@ const ClassList = () => {
 
           <div className="p-6">
             {Array.isArray(currentPageData) && currentPageData.length > 0 ? (
-              <div className="overflow-x-auto">
-                <Table
-                  columns={columns}
-                  data={currentPageData}
-                  actions={actions}
-                />
-              </div>
+              <Table
+                columns={columns}
+                data={currentPageData}
+                actions={actions}
+              />
             ) : (
               <div className="text-center py-12">
                 <FaSchool className="w-16 h-16 text-gray-400 mx-auto mb-4" />

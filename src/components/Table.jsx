@@ -1,57 +1,90 @@
 const Table = ({ columns = [], data = [], actions }) => {
   return (
-    <div className="overflow-x-auto w-full rounded-md shadow border border-gray-200">
-      <table className="min-w-full bg-white text-xs sm:text-sm text-gray-700">
-        <thead className="bg-gray-100 text-left text-xs uppercase text-gray-500">
-          <tr>
-            {columns.map((col, idx) => (
-              <th key={idx} className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
-                {col.header}
-              </th>
-            ))}
-            {actions && <th className="px-2 sm:px-4 py-2 sm:py-3">Actions</th>}
-          </tr>
-        </thead>
-
-        <tbody>
-          {data.length === 0 ? (
+    <div className="w-full">
+      <div className="block sm:hidden text-xs text-gray-500 mb-2 px-2 flex items-center">
+        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Scroll horizontally to view all columns
+      </div>
+      <div className="overflow-x-auto rounded-lg shadow border border-gray-200 scrollbar-red-light">
+        <div className="min-w-full">
+          <table className="w-full bg-white text-gray-700 table-auto" style={{ minWidth: '600px' }}>
+          <thead className="bg-gray-100 text-left text-xs uppercase text-gray-500 border-b border-gray-200">
             <tr>
-              <td
-                colSpan={columns.length + (actions ? 1 : 0)}
-                className="text-center p-4 text-gray-400"
-              >
-                No data found.
-              </td>
+              {columns.map((col, idx) => (
+                <th 
+                  key={idx} 
+                  className="px-3 sm:px-4 py-3 font-semibold tracking-wider"
+                  style={{ 
+                    minWidth: col.minWidth || '120px',
+                    width: col.width || 'auto'
+                  }}
+                >
+                  {col.header}
+                </th>
+              ))}
+              {actions && (
+                <th 
+                  className="px-3 sm:px-4 py-3 font-semibold tracking-wider text-center"
+                  style={{ minWidth: '120px', width: '140px' }}
+                >
+                  Actions
+                </th>
+              )}
             </tr>
-          ) : (
-            data.map((row, idx) => (
-              <tr
-                key={idx}
-                className={`border-t border-gray-100 hover:bg-gray-50 ${
-                  row.status === "present"
-                    ? "bg-green-100"
-                    : row.status === "absent"
-                    ? "bg-red-100"
-                    : ""
-                }`}
-              >
-                {columns.map((col, i) => (
-                  <td key={i} className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
-                    {col.render ? col.render(row) : row[col.accessor]}
-                  </td>
-                ))}
-                {actions && (
-                  <td className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
-                    <div className="flex space-x-1 sm:space-x-2">
-                      {actions(row)}
-                    </div>
-                  </td>
-                )}
+          </thead>
+
+          <tbody className="divide-y divide-gray-100">
+            {data.length === 0 ? (
+              <tr>
+                <td
+                  colSpan={columns.length + (actions ? 1 : 0)}
+                  className="text-center p-8 text-gray-400"
+                >
+                  No data found.
+                </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              data.map((row, idx) => (
+                <tr
+                  key={idx}
+                  className={`hover:bg-gray-50 transition-colors duration-200 ${
+                    row.status === "present"
+                      ? "bg-green-50"
+                      : row.status === "absent"
+                      ? "bg-red-50"
+                      : "bg-white"
+                  }`}
+                >
+                  {columns.map((col, i) => (
+                    <td 
+                      key={i} 
+                      className="px-3 sm:px-4 py-3 text-sm text-gray-900"
+                      style={{ 
+                        minWidth: col.minWidth || '120px',
+                        width: col.width || 'auto'
+                      }}
+                    >
+                      <div className="break-words">
+                        {col.render ? col.render(row) : row[col.accessor]}
+                      </div>
+                    </td>
+                  ))}
+                  {actions && (
+                    <td className="px-3 sm:px-4 py-3" style={{ minWidth: '120px', width: '140px' }}>
+                      <div className="flex justify-center items-center space-x-1 lg:space-x-2">
+                        {actions(row)}
+                      </div>
+                    </td>
+                  )}
+                </tr>
+              ))
+            )}
+          </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
