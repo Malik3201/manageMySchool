@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import NoticeModel from "../modules/NoticeBoard/NoticeModel";
-import { FaBell, FaSearch, FaFilter, FaGraduationCap } from "react-icons/fa";
+import { FaBell, FaSearch, FaFilter, FaUsers } from "react-icons/fa";
 
-function StudentNoticeBoard() {
+function ParentNoticeBoard() {
   const [notices, setNotices] = useState([]);
   const [filteredNotices, setFilteredNotices] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,22 +23,21 @@ function StudentNoticeBoard() {
       });
   }, []);
 
+  useEffect(() => {
+    let filtered = notices;
 
-      useEffect(() => {
-      let filtered = notices;
+    if (filterType !== "All") {
+      filtered = filtered.filter(notice => notice.type === filterType);
+    }
 
-      if (filterType !== "All") {
-        filtered = filtered.filter(notice => notice.type === filterType);
-      }
+    if (searchTerm.trim()) {
+      filtered = filtered.filter(notice =>
+        notice.notice.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
 
-      if (searchTerm.trim()) {
-        filtered = filtered.filter(notice =>
-          notice.notice.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-      }
-
-      setFilteredNotices(filtered);
-    }, [notices, searchTerm, filterType]);
+    setFilteredNotices(filtered);
+  }, [notices, searchTerm, filterType]);
 
   const getTypeStats = () => {
     const stats = {
@@ -56,7 +55,7 @@ function StudentNoticeBoard() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg mb-4 animate-pulse">
+          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg mb-4 animate-pulse">
             <FaBell className="w-8 h-8 text-white" />
           </div>
           <p className="text-gray-600">Loading notices...</p>
@@ -71,16 +70,16 @@ function StudentNoticeBoard() {
         
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-              <FaGraduationCap className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+              <FaUsers className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900">Student Notice Board</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Parent Notice Board</h1>
           </div>
-          <p className="text-gray-600 text-lg">Stay updated with important announcements</p>
+          <p className="text-gray-600 text-lg">Stay connected with your child's school updates</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-green-500 to-green-600 px-6 py-4">
+          <div className="bg-gradient-to-r from-purple-500 to-purple-600 px-6 py-4">
             <div className="flex items-center space-x-3">
               <FaSearch className="w-5 h-5 text-white" />
               <h2 className="text-xl font-semibold text-white">Search & Filter</h2>
@@ -98,7 +97,7 @@ function StudentNoticeBoard() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search in notice content..."
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
               />
             </div>
 
@@ -110,7 +109,7 @@ function StudentNoticeBoard() {
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all duration-200"
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-200"
               >
                 <option value="All">🔍 All Types ({stats.All})</option>
                 <option value="Regular">📌 Regular ({stats.Regular})</option>
@@ -195,4 +194,4 @@ function StudentNoticeBoard() {
   );
 }
 
-export default StudentNoticeBoard;
+export default ParentNoticeBoard; 

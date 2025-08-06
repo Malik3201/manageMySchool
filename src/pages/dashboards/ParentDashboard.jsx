@@ -1,60 +1,72 @@
 import Sidebar from "../../components/Sidebar";
-import NoticeBoard from "../../modules/NoticeBoard/NoticeBoard";
 import { Route, Routes } from "react-router-dom";
-import ClassManagement from "../../modules/classes/ClassManagement";
-import TeacherManagement from "../../modules/teacher/TeacherManagement";
 import { Navigate } from "react-router-dom";
-import StudentManagement from "../../modules/students/StudentManagemant";
-import TeacherAttendance from "../../modules/Attendance/TeacherAttendance";
-import StudentAttendance from "../../modules/Attendance/StudentAttendance";
-import ExamsManagement from "../../modules/Exams/ExamsManagement";
-import { useState } from "react";
+import ParentTimeTable from "../ParentTimeTable";
 import Settings from "../Settings";
-import { GiHamburgerMenu } from "react-icons/gi";
-import ChildFees from "../../ParentModule/ChildFees";
-import ParentReport from "../ParentReport";
-import ParentTimetable from "../ParentTimeTable";
 import ViewChildAttendance from "../../TeacherModules/ViewChildAttendance";
+import ParentReport from "../ParentReport";
+import ChildFees from "../../ParentModule/ChildFees";
+import ParentNoticeBoard from "../../ParentModule/ParentNoticeBoard";
+import { useState } from "react";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaBell, FaUser } from "react-icons/fa";
+
 const ParentDashboard = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-  const currentUserRole = JSON.parse(localStorage.getItem("userRole"));
-  console.log(currentUserRole);
-
+  
   return (
-    <>
-      <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+      <div
+        className={`${
+          showSidebar ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 fixed md:static top-0 left-0 w-64 h-screen transition-transform duration-300 z-20`}
+      >
         <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-        <div className="flex-1 flex flex-col">
-          <div className="p-6 overflow-auto">
-            <button
-              className={`${showSidebar ? "hidden" : "block"} md:hidden`}
-              onClick={() => setShowSidebar(true)}
-            >
-              <GiHamburgerMenu />
-            </button>
+      </div>
+
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <header className="bg-white shadow-sm border-b border-gray-200 px-4 py-3 md:px-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <button
+                className={`${showSidebar ? "hidden" : "block"} md:hidden bg-gray-100 hover:bg-gray-200 p-2 rounded-lg transition-colors duration-200`}
+                onClick={() => setShowSidebar(true)}
+              >
+                <GiHamburgerMenu size={20} className="text-gray-600" />
+              </button>
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">Parent Dashboard</h1>
+                <p className="text-sm text-gray-500 hidden sm:block">Monitor your child's progress</p>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <button className="relative p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors duration-200">
+                <FaBell size={18} />
+                <span className="absolute -top-1 -right-1 w-3 h-3 bg-purple-500 rounded-full"></span>
+              </button>
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                <FaUser size={14} className="text-white" />
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main className="flex-1 overflow-auto bg-gray-50">
+          <div className="p-4 sm:p-6">
             <Routes>
-              <Route
-                index
-                element={
-                  <Navigate
-                    to={currentUserRole === "parent" ? "fees" : "notice-board"}
-                    replace
-                  />
-                }
-              />
+              <Route index element={<Navigate to="notice-board" replace />} />
+              <Route path="notice-board" element={<ParentNoticeBoard />} />
               <Route path="fees" element={<ChildFees />} />
-              <Route
-                path="attendance/student-Attendance"
-                element={<ViewChildAttendance />}
-              />
+              <Route path="attendance/student-attendance" element={<ViewChildAttendance />} />
               <Route path="reports" element={<ParentReport />} />
-              <Route path="time-table" element={<ParentTimetable />} />
+              <Route path="time-table" element={<ParentTimeTable />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
           </div>
-        </div>
+        </main>
       </div>
-    </>
+    </div>
   );
 };
 
