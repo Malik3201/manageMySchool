@@ -1,15 +1,15 @@
 const Table = ({ columns = [], data = [], actions }) => {
   return (
     <div className="overflow-x-auto w-full rounded-md shadow border border-gray-200">
-      <table className="min-w-full bg-white text-sm text-gray-700">
+      <table className="min-w-full bg-white text-xs sm:text-sm text-gray-700">
         <thead className="bg-gray-100 text-left text-xs uppercase text-gray-500">
           <tr>
             {columns.map((col, idx) => (
-              <th key={idx} className="px-4 py-3 whitespace-nowrap">
+              <th key={idx} className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
                 {col.header}
               </th>
             ))}
-            {actions && <th className="px-4 py-3">Actions</th>}
+            {actions && <th className="px-2 sm:px-4 py-2 sm:py-3">Actions</th>}
           </tr>
         </thead>
 
@@ -36,13 +36,15 @@ const Table = ({ columns = [], data = [], actions }) => {
                 }`}
               >
                 {columns.map((col, i) => (
-                  <td key={i} className="px-4 py-3 whitespace-nowrap">
+                  <td key={i} className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
                     {col.render ? col.render(row) : row[col.accessor]}
                   </td>
                 ))}
                 {actions && (
-                  <td className="px-4 py-3 whitespace-nowrap space-x-2">
-                    {actions(row)}
+                  <td className="px-2 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
+                    <div className="flex space-x-1 sm:space-x-2">
+                      {actions(row)}
+                    </div>
                   </td>
                 )}
               </tr>

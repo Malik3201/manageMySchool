@@ -10,7 +10,7 @@ function StudentNoticeBoard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/data/notice.json")
+     fetch("/data/notice.json")
       .then(res => res.json())
       .then(data => {
         setNotices(data);
@@ -155,8 +155,8 @@ function StudentNoticeBoard() {
             </h3>
             <div className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
               {filteredNotices.length} {filteredNotices.length === 1 ? 'Notice' : 'Notices'}
-            </div>
-          </div>
+  </div>
+</div>
 
           {filteredNotices.length === 0 ? (
             <div className="text-center py-12 bg-white rounded-2xl shadow-sm border border-gray-200">

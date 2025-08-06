@@ -29,7 +29,7 @@ const TeacherDashboard = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <button
-                className={`${showSidebar ? "hidden" : "block"} md:hidden bg-gray-100 hover:bg-gray-200 p-2 rounded-lg transition-colors duration-200`}
+                className={`${showSidebar ? "hidden" : "block"} md:hidden bg-gray-100 hover:bg-gray-200 p-2 rounded-lg transition-colors duration-200 z-30`}
                 onClick={() => setShowSidebar(true)}
               >
                 <GiHamburgerMenu size={20} className="text-gray-600" />
@@ -53,7 +53,7 @@ const TeacherDashboard = () => {
         </header>
 
         <main className="flex-1 overflow-auto bg-gray-50">
-          <div className="p-4 sm:p-6">
+          <div className="p-2 sm:p-4 lg:p-6">
             <Routes>
               <Route index element={<Navigate to="notice-board" replace />} />
               <Route path="notice-board" element={<TeacherNoticeBoard />} />

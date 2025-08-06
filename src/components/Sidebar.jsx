@@ -149,7 +149,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
   };
 
   return (
-    <>
+    <div className="relative h-full">
       {showSidebar && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
@@ -157,7 +157,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         />
       )}
 
-      <div className="flex flex-col h-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white shadow-2xl">
+      <div className="flex flex-col h-full bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white shadow-2xl relative z-50">
         <div className={`bg-gradient-to-r ${getRoleColor()} p-4 relative overflow-hidden flex-shrink-0`}>
           <button 
             className="absolute top-2 right-2 md:hidden text-white hover:text-gray-200 transition-colors duration-200 z-10"
@@ -232,7 +232,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

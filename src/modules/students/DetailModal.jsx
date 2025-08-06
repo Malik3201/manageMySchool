@@ -62,7 +62,7 @@ const DetailModal = ({ studentId, setDetailModalOpen }) => {
                 <div className="relative inline-block mb-4">
                   <img
                     src={student.profileImage || 'https://via.placeholder.com/200'}
-                    alt={`${student.name} profile`}
+            alt={`${student.name} profile`}
                     className="w-32 h-32 object-cover rounded-full border-4 border-white shadow-lg mx-auto"
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/200';
@@ -164,17 +164,17 @@ const DetailModal = ({ studentId, setDetailModalOpen }) => {
                       <div className="flex items-center space-x-2 mb-2">
                         <FaMapMarkerAlt className="w-4 h-4 text-gray-600" />
                         <span className="text-sm font-medium text-gray-600">Address</span>
-                      </div>
+            </div>
                       <p className="text-lg font-semibold text-gray-900">{student.address || 'N/A'}</p>
-                    </div>
-                  </div>
-                </div>
+            </div>
+            </div>
+            </div>
 
                 <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-6 border-2 border-blue-200">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <FaGraduationCap className="w-8 h-8 text-white" />
-                    </div>
+            </div>
                     <h4 className="text-lg font-bold text-blue-900 mb-2">Academic Journey</h4>
                     <p className="text-blue-700">
                       {student.name} is currently enrolled in Class {student.class}, Section {student.section}
@@ -182,9 +182,9 @@ const DetailModal = ({ studentId, setDetailModalOpen }) => {
                     <p className="text-blue-600 text-sm mt-2">
                       Student ID: {student.rollNumber} • Enrolled in our institution
                     </p>
-                  </div>
-                </div>
-              </div>
+            </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>
