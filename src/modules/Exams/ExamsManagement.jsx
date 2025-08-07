@@ -473,7 +473,7 @@ function ExamsManagement() {
                 </select>
                 <button
                   onClick={clearFilters}
-                  className=" px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
+                  className="col-span-2 px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
                 >
                   Clear
                 </button>

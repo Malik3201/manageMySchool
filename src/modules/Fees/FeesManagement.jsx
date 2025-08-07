@@ -264,7 +264,6 @@ const FeesManagement = () => {
             </div>
             <div>
               <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Fees Management</h1>
-              <p className="text-sm text-gray-600">Manage student fee collections and payments</p>
             </div>
           </div>
         </div>
@@ -287,12 +286,15 @@ const FeesManagement = () => {
 
             {showFilters && (
               <form onSubmit={handleSubmit(onSubmit)} className="mt-4 pt-4 border-t border-white border-opacity-30">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-center">
                   <div>
+                     <h3 className='text-white mb-1'>Classes</h3>
                     <ClassesDropdown register={register} errors={errors} required={true} variant="admin" />
                   </div>
                   
                   <div>
+                     <h3 className='text-white mb-1'>Sections</h3>
+
                     <SectionsDropdown register={register} errors={errors} required={true} variant="admin" />
                   </div>
 
@@ -323,7 +325,7 @@ const FeesManagement = () => {
                     />
                   </div>
 
-                  <div className="flex items-end">
+                  <div className="lg:mt-7">
                     <button
                       type="submit"
                       disabled={isSubmitting || !selectedClass || !selectedSection}
@@ -390,13 +392,13 @@ const FeesManagement = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className=" bg-white rounded-xl p-4 sm:p-2 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-600">Collected</p>
                       <p className="text-xl sm:text-2xl font-bold text-green-600">₹{stats.paidAmount.toLocaleString()}</p>
                     </div>
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
                       <FaDollarSign className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                     </div>
                   </div>
