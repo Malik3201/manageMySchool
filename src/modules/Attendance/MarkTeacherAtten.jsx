@@ -163,7 +163,7 @@ function MarkTeacherAttendance() {
       minWidth: '240px',
       width: '35%',
       render: (teacher) => (
-        <div className="flex flex-wrap gap-1 sm:gap-2">
+        <div className=" gap-2 flex ">
           {['Present', 'Absent', 'Leave'].map(status => {
             const isSelected = attendanceData[teacher.id] === status;
             const getStatusColor = () => {
@@ -268,7 +268,7 @@ function MarkTeacherAttendance() {
       </div>
 
       {teachers.length > 0 && (
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between">
               <div>
@@ -317,7 +317,7 @@ function MarkTeacherAttendance() {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+          <div className="lg:col-span-1 col-span-2 bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Attendance Rate</p>

@@ -382,7 +382,7 @@ const FeesManagement = () => {
 
                 
 
-                <div className="md:col-span-1 col-span-2 bg-white rounded-xl p-4 sm:p-2 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="lg:col-span-1 col-span-2 bg-white rounded-xl p-4 sm:p-2 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between md:p-4 ">
                     <div>
                       <p className="text-sm font-medium text-gray-600">Collected</p>
@@ -419,8 +419,8 @@ const FeesManagement = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="flex-1">
+              <div className="flex flex-col lg:flex-row gap-4">
+                <div className="flex-1 ">
                   <div className="relative">
                     <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                     <input
