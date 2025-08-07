@@ -239,11 +239,11 @@ const ClassList = () => {
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg">
               <FaSchool className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <div>
+    <div>
               <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Class Management</h1>
-            </div>
-          </div>
-          
+    </div>
+  </div>
+
           <button
             onClick={() => setIsAddModalOpen(true)}
             className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 sm:px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
@@ -373,15 +373,15 @@ const ClassList = () => {
                     className="w-full sm:w-auto bg-white text-red-600 px-4 sm:px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200"
                   >
                     Apply Filter
-                  </button>
-                  <button
+          </button>
+          <button
                     type="button"
                     onClick={clearFilters}
                     className="w-full sm:w-auto bg-white bg-opacity-20 border border-white border-opacity-30 text-white px-4 sm:px-6 py-2 rounded-lg font-medium hover:bg-opacity-30 transition-all duration-200"
-                  >
+          >
                     Clear Filters
-                  </button>
-                </div>
+          </button>
+        </div>
               </form>
             )}
           </div>
@@ -392,19 +392,19 @@ const ClassList = () => {
                 columns={columns}
                 data={currentPageData}
                 actions={actions}
-              />
-            ) : (
+    />
+  ) : (
               <div className="text-center py-12">
                 <FaSchool className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">No Classes Found</h3>
                 <p className="text-gray-500 mb-6">Get started by adding your first class.</p>
                 <button
-                  onClick={() => setIsAddModalOpen(true)}
+          onClick={() => setIsAddModalOpen(true)}
                   className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
-                >
+        >
                   Add First Class
                 </button>
-              </div>
+      </div>
             )}
 
             {Array.isArray(classList) && classList.length > 0 && (
@@ -470,19 +470,19 @@ const ClassList = () => {
         </div>
       </div>
 
-      <AddClassModal
-        isOpen={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
-      />
-
-      {selectedClass && (
-        <EditClassModal
-          isOpen={isEditModalOpen}
-          onClose={() => setIsEditModalOpen(false)}
-          classData={selectedClass}
-        />
-      )}
-    </div>
+  <AddClassModal
+    isOpen={isAddModalOpen}
+    onClose={() => setIsAddModalOpen(false)}
+  />
+ 
+  {selectedClass && (
+    <EditClassModal
+      isOpen={isEditModalOpen}
+      onClose={() => setIsEditModalOpen(false)}
+      classData={selectedClass}
+    />
+  )}
+</div>
   );
 };
 

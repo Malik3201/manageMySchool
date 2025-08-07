@@ -26,7 +26,7 @@ import {
 function ExamsManagement() {
   const [classes, setClasses] = useState([]);
   const [sections, setSections] = useState([]);
-  const [examData, setExamData] = useState([]);
+  const [examData, setExamData] = useState([]); 
   const [showFilters, setShowFilters] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -43,7 +43,7 @@ function ExamsManagement() {
   } = useForm();
 
   const selectedClass = watch("class");
-
+  
   useEffect(() => {
     setLoading(true);
     Promise.all([
@@ -103,18 +103,18 @@ function ExamsManagement() {
 
     setIsSubmitting(true);
     try {
-      const examRecord = {
+    const examRecord = {
         id: Date.now(),
         date: data.date,
         time: data.time,
-        class: data.class,
-        section: data.section,
+      class: data.class,
+      section: data.section,
         subject: data.subject,
         createdAt: new Date().toISOString()
-      };
+    };
 
       const updatedData = [...examData, examRecord];
-      setExamData(updatedData);
+    setExamData(updatedData);
       
       localStorage.setItem("examData", JSON.stringify(updatedData));
       
@@ -305,18 +305,18 @@ function ExamsManagement() {
 
             {showFilters && (
               <form onSubmit={handleSubmit(onSubmit)} className="mt-4 pt-4 border-t border-white border-opacity-30">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 items-center">
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">Class</label>
                     <div className="bg-white bg-opacity-20 rounded-lg">
-                      <ClassesDropdown register={register} errors={errors} />
+          <ClassesDropdown register={register} errors={errors} />
                     </div>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-white mb-2">Section</label>
                     <div className="bg-white bg-opacity-20 rounded-lg">
-                      <SectionsDropdown register={register} errors={errors} sections={sections} />
+          <SectionsDropdown register={register} errors={errors} sections={sections} />
                     </div>
                   </div>
 
@@ -332,9 +332,9 @@ function ExamsManagement() {
                       <FaCalendarAlt className="inline w-3 h-3 mr-1" />
                       Date
                     </label>
-                    <input
+          <input
                       {...register('date', { required: 'Date is required' })}
-                      type="date"
+            type="date"
                       className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:bg-opacity-30"
                     />
                     {errors.date && (
@@ -347,9 +347,9 @@ function ExamsManagement() {
                       <FaClock className="inline w-3 h-3 mr-1" />
                       Time
                     </label>
-                    <input
+          <input
                       {...register('time', { required: 'Time is required' })}
-                      type="time"
+            type="time"
                       className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:bg-opacity-30"
                     />
                     {errors.time && (
@@ -357,20 +357,20 @@ function ExamsManagement() {
                     )}
                   </div>
 
-                  <div className="flex items-end">
+                  <div className="mt-7">
                     <button
                       type="submit"
                       disabled={isSubmitting}
                       className={`w-full bg-white text-red-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 flex items-center justify-center space-x-2 ${
                         isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                       }`}
-                    >
+                    > 
                       <FaSave className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span className="text-sm sm:text-base">{isSubmitting ? 'Scheduling...' : 'Schedule'}</span>
-                    </button>
+          </button>
                   </div>
-                </div>
-              </form>
+        </div>
+      </form>
             )}
           </div>
 
@@ -450,7 +450,7 @@ function ExamsManagement() {
                   />
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 <select
                   value={filterClass}
                   onChange={(e) => setFilterClass(e.target.value)}
@@ -473,7 +473,7 @@ function ExamsManagement() {
                 </select>
                 <button
                   onClick={clearFilters}
-                  className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
+                  className=" px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
                 >
                   Clear
                 </button>
@@ -505,12 +505,12 @@ function ExamsManagement() {
                   <p className="text-gray-500">
                     No exams match your current search and filter criteria.
                   </p>
-                  <button
+        <button
                     onClick={clearFilters}
                     className="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-all duration-200"
-                  >
+        >
                     Clear Filters
-                  </button>
+        </button>
                 </div>
               </div>
             ) : (
@@ -522,8 +522,8 @@ function ExamsManagement() {
                     Get started by scheduling your first exam using the form above.
                   </p>
                 </div>
-              </div>
-            )}
+  </div>
+)}
           </div>
         </div>
       </div>

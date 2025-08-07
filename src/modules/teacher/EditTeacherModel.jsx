@@ -41,7 +41,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
     "Biology", "History", "Geography", "Literature", "Computer Science",
     "Physical Education", "Art", "Music"
   ];
-
+ 
   useEffect(() => {
     if (isOpen) {
       dispatch(getClasses());
@@ -52,7 +52,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
     const classSectionCombinations = getClassSectionCombinations(classes);
     setAvailableClasses(classSectionCombinations);
   }, [classes]);
-
+ 
   useEffect(() => {
     if (teacher && isOpen) {
       reset({
@@ -103,14 +103,14 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
     try {
       const teacherData = {
         ...data,
-        id: teacher.id,
+      id: teacher.id,
         assignedClasses: selectedClasses,
         subjects: selectedSubjects,
         profileImage: data.profileImage || null
-      };
-      
+    };
+
       await dispatch(editTeacher(teacherData));
-      onClose();
+    onClose();
     } catch (error) {
       console.error('Error updating teacher:', error);
     } finally {
@@ -158,7 +158,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                         <FaUser className="w-4 h-4 text-red-500" />
                         <span>Full Name *</span>
                       </label>
-                      <input
+            <input
                         {...register('name', { 
                           required: 'Full name is required',
                           minLength: { value: 2, message: 'Name must be at least 2 characters' }
@@ -184,7 +184,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                         <FaEnvelope className="w-4 h-4 text-red-500" />
                         <span>Email Address *</span>
                       </label>
-                      <input
+            <input
                         {...register('email', { 
                           required: 'Email is required',
                           pattern: {
@@ -192,7 +192,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                             message: 'Please enter a valid email address'
                           }
                         })}
-                        type="email"
+              type="email"
                         className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-200 ${
                           errors.email 
                             ? 'border-red-300 focus:ring-red-500 focus:border-red-500' 
@@ -206,14 +206,14 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                           {errors.email.message}
                         </p>
                       )}
-                    </div>
-
+          </div>
+          
                     <div>
                       <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                         <FaPhone className="w-4 h-4 text-red-500" />
                         <span>Phone Number *</span>
                       </label>
-                      <input
+          <input
                         {...register('phone', { 
                           required: 'Phone number is required',
                           pattern: {
@@ -241,7 +241,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                       <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                         <FaUser className="w-4 h-4 text-red-500" />
                         <span>Profile Image URL</span>
-                      </label>
+              </label>
                       <input
                         {...register('profileImage')}
                         type="url"
@@ -251,8 +251,8 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                       <p className="mt-1 text-xs text-gray-500">Optional: Provide a URL for the teacher's profile picture</p>
                     </div>
                   </div>
-                </div>
-
+            </div>
+            
                 <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
                   <div className="bg-gray-50 px-6 py-3 border-b border-gray-200 rounded-t-xl">
                     <h3 className="font-semibold text-gray-900 flex items-center">
@@ -301,16 +301,16 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                     <div className="mb-4">
                       <div className="relative">
                         <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                        <input
-                          type="text"
-                          placeholder="Search classes..."
-                          value={searchTerm}
-                          onChange={(e) => setSearchTerm(e.target.value)}
+              <input
+                type="text"
+                placeholder="Search classes..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                           className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                         />
-                      </div>
-                    </div>
-
+                </div>
+              </div>
+              
                     <div className="max-h-80 overflow-y-auto space-y-1 scrollbar-red-light">
                       {filteredClasses.length > 0 ? (
                         filteredClasses.map((className) => (
@@ -356,10 +356,10 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                               >
                                 ×
                               </button>
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                                  </span>
+                              ))}
+                            </div>
+                          </div>
                     )}
                   </div>
                 </div>
@@ -374,7 +374,7 @@ function EditTeacherModel({ isOpen, onClose, teacher }) {
                 onClick={onClose}
                 className="px-6 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
               >
-                Cancel
+              Cancel
               </button>
               <button
                 type="submit"

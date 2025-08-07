@@ -76,18 +76,18 @@ const MarkAttendance = () => {
 
     setIsSubmitting(true);
     try {
-      const record = {
-        date: attendanceDate,
-        class: selectedClass,
-        section: selectedSection,
-        records: filteredStudents.map(stu => ({
-          studentId: stu.id,
-          status: attendanceData[stu.id] || 'Present'
-        }))
-      };
+    const record = {
+      date: attendanceDate,
+      class: selectedClass,
+      section: selectedSection,
+      records: filteredStudents.map(stu => ({
+        studentId: stu.id,
+        status: attendanceData[stu.id] || 'Present'
+      }))
+    };
       
       setTimeout(() => {
-        console.log('Attendance to save:', record);
+    console.log('Attendance to save:', record);
         alert('Attendance marked successfully!');
         setIsSubmitting(false);
       }, 1000);
@@ -158,14 +158,14 @@ const MarkAttendance = () => {
             };
 
             return (
-              <button
-                key={status}
-                type="button"
-                onClick={() => handleStatusChange(stu.id, status)}
+            <button
+              key={status}
+              type="button"
+              onClick={() => handleStatusChange(stu.id, status)}
                 className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-lg border transition-all duration-200 font-medium ${getStatusColor()}`}
-              >
-                {status}
-              </button>
+            >
+              {status}
+            </button>
             );
           })}
         </div>
@@ -192,18 +192,18 @@ const MarkAttendance = () => {
 
         {showFilters && (
           <form onSubmit={handleSubmit(onSubmit)} className="mt-4 pt-4 border-t border-white border-opacity-30">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
               <div>
                 <label className="block text-sm font-medium text-white mb-2">Class</label>
                 <div className="bg-white bg-opacity-20 rounded-lg">
-                  <ClassesDropdown register={register} errors={errors} />
+          <ClassesDropdown register={register} errors={errors} />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-white mb-2">Section</label>
                 <div className="bg-white bg-opacity-20 rounded-lg">
-                  <SectionsDropdown register={register} errors={errors} />
+          <SectionsDropdown register={register} errors={errors} />
                 </div>
               </div>
 
@@ -212,16 +212,16 @@ const MarkAttendance = () => {
                   <FaCalendarAlt className="inline w-4 h-4 mr-1" />
                   Date
                 </label>
-                <input
-                  type="date"
-                  value={attendanceDate}
-                  onChange={e => setAttendanceDate(e.target.value)}
+          <input
+            type="date"
+            value={attendanceDate}
+            onChange={e => setAttendanceDate(e.target.value)}
                   className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:bg-opacity-30"
                   required
                 />
               </div>
 
-              <div className="flex items-end">
+              <div className="flex items-center mt-6">
                 <button
                   type="submit"
                   disabled={isSubmitting || filteredStudents.length === 0}
@@ -304,7 +304,7 @@ const MarkAttendance = () => {
           </div>
           
           <div className="p-6">
-            <Table columns={columns} data={filteredStudents} />
+        <Table columns={columns} data={filteredStudents} />
           </div>
         </div>
       ) : selectedClass && selectedSection ? (

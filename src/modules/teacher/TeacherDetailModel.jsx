@@ -179,10 +179,10 @@ const TeacherDetailModal = ({ teacher, onClose }) => {
                       <div className="text-2xl font-bold text-red-700">
                         {teacher.assignedClasses ? teacher.assignedClasses.length : 0}
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
+            </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>
@@ -193,7 +193,7 @@ const TeacherDetailModal = ({ teacher, onClose }) => {
               onClick={onClose}
               className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 transform hover:scale-[1.02] shadow-lg"
             >
-              Close
+            Close
             </button>
           </div>
         </div>

@@ -260,7 +260,7 @@ const TeacherList = () => {
       <button
         onClick={() => {
           setSelectedTeacher(row);
-          setIsEditModalOpen(true);
+    setIsEditModalOpen(true);
         }}
         className="p-1.5 sm:p-2 text-green-600 hover:text-green-800 hover:bg-green-50 rounded-lg transition-colors duration-200"
         title="Edit Teacher"
@@ -349,7 +349,7 @@ const TeacherList = () => {
                 <FaGraduationCap className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
             </div>
-          </div>
+      </div>
 
           <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-200">
             <div className="flex items-center justify-between">
@@ -438,13 +438,13 @@ const TeacherList = () => {
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                    <button
+              <button
                       type="submit"
                       className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-200"
-                    >
+              >
                       Apply Filter
-                    </button>
-                    <button
+              </button>
+              <button
                       type="button"
                       onClick={clearFilters}
                       className="w-full sm:w-auto bg-gray-500 hover:bg-gray-600 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition-all duration-200"
@@ -559,7 +559,7 @@ const TeacherList = () => {
                   >
                     <span className="hidden sm:inline">Next</span>
                     <FaChevronRight className="w-3 h-3 sm:ml-1" />
-                  </button>
+              </button>
                 </div>
               </div>
             </div>
@@ -596,4 +596,4 @@ const TeacherList = () => {
   );
 };
 
-export default TeacherList; 
+export default TeacherList;

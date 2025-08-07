@@ -48,7 +48,7 @@ function MarkTeacherAttendance() {
       initialAttendance[teacher.id] = "Present";
     });
     setAttendanceData(initialAttendance);
-  }, [teachers]);
+  }, [teachers]); 
 
   function handleStatusChange(id, status) {
     setAttendanceData(prev => ({ ...prev, [id]: status }));
@@ -74,14 +74,14 @@ function MarkTeacherAttendance() {
 
     setIsSubmitting(true);
     try {
-      const record = {
-        date: attendanceDate,
+    const record = {
+      date: attendanceDate,
         records: teachers.map(teacher => ({
           teacherId: teacher.id,
           teacherName: teacher.name,
           status: attendanceData[teacher.id] || 'Present'
-        }))
-      };
+      }))
+    };
 
       setTimeout(() => {
         console.log('Teacher Attendance to save:', record);
@@ -186,14 +186,14 @@ function MarkTeacherAttendance() {
             };
 
             return (
-              <button
-                key={status}
-                type="button"
+            <button
+              key={status}
+              type="button"
                 onClick={() => handleStatusChange(teacher.id, status)}
                 className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-lg border transition-all duration-200 font-medium ${getStatusColor()}`}
-              >
-                {status}
-              </button>
+            >
+              {status}
+            </button>
             );
           })}
         </div>
@@ -241,10 +241,10 @@ function MarkTeacherAttendance() {
                   <FaCalendarAlt className="inline w-4 h-4 mr-1" />
                   Date
                 </label>
-                <input
-                  type="date"
-                  value={attendanceDate}
-                  onChange={e => setAttendanceDate(e.target.value)}
+          <input
+            type="date"
+            value={attendanceDate}
+            onChange={e => setAttendanceDate(e.target.value)}
                   className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:bg-opacity-30"
                   required
                 />
@@ -262,8 +262,8 @@ function MarkTeacherAttendance() {
                   <span>{isSubmitting ? 'Saving...' : 'Submit Attendance'}</span>
                 </button>
               </div>
-            </div>
-          </form>
+        </div>
+      </form>
         )}
       </div>
 
@@ -345,7 +345,7 @@ function MarkTeacherAttendance() {
           </div>
           
           <div className="p-6">
-            <Table columns={columns} data={teachers} />
+        <Table columns={columns} data={teachers} />
           </div>
         </div>
       ) : (

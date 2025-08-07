@@ -24,8 +24,8 @@ function AddClassModal({ isOpen, onClose }) {
     watch
   } = useForm({
     defaultValues: {
-      className: "",
-      sections: "",
+    className: "",
+    sections: "",
       studentsPerSection: 25
     }
   });
@@ -48,38 +48,38 @@ function AddClassModal({ isOpen, onClose }) {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      let sectionsArray = [];
+    let sectionsArray = [];
       const studentCount = parseInt(data.studentsPerSection) || 25;
-      
+    
       if (data.sections.trim()) {
         sectionsArray = data.sections
-          .split(",")
-          .map((sec, index) => {
-            const sectionLetter = sec.trim().toUpperCase();
-            const baseId = Date.now() + (index * 100);
-            const students = Array.from({ length: studentCount }, (_, i) => baseId + i);
-            
-            return {
-              section: sectionLetter,
-              students: students,
-            };
-          });
-      } else {
-        const baseId = Date.now();
-        const students = Array.from({ length: studentCount }, (_, i) => baseId + i);
-        sectionsArray = [{ 
-          section: "A", 
-          students: students 
-        }];
-      }
+        .split(",")
+        .map((sec, index) => {
+          const sectionLetter = sec.trim().toUpperCase();
+          const baseId = Date.now() + (index * 100);
+          const students = Array.from({ length: studentCount }, (_, i) => baseId + i);
+          
+          return {
+            section: sectionLetter,
+            students: students,
+          };
+        });
+    } else {
+      const baseId = Date.now();
+      const students = Array.from({ length: studentCount }, (_, i) => baseId + i);
+      sectionsArray = [{ 
+        section: "A", 
+        students: students 
+      }];
+    }
 
-      const classData = {
+    const classData = {
         className: data.className,
-        sections: sectionsArray,
-      };
+      sections: sectionsArray,
+    };
 
       await dispatch(addClass(classData));
-      onClose();
+    onClose();
       reset();
     } catch (error) {
       console.error('Error adding class:', error);
@@ -122,12 +122,12 @@ function AddClassModal({ isOpen, onClose }) {
                   </h3>
                 </div>
                 <div className="p-6 space-y-4">
-                  <div>
+          <div>
                     <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                       <FaSchool className="w-4 h-4 text-red-500" />
                       <span>Class Name *</span>
-                    </label>
-                    <input
+            </label>
+            <input
                       {...register('className', {
                         required: 'Class name is required',
                         minLength: { value: 1, message: 'Class name must be at least 1 character' }
@@ -146,14 +146,14 @@ function AddClassModal({ isOpen, onClose }) {
                         {errors.className.message}
                       </p>
                     )}
-                  </div>
+          </div>
 
-                  <div>
+          <div>
                     <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                       <FaList className="w-4 h-4 text-red-500" />
                       <span>Sections</span>
-                    </label>
-                    <input
+            </label>
+            <input
                       {...register('sections')}
                       type="text"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-200"
@@ -163,19 +163,19 @@ function AddClassModal({ isOpen, onClose }) {
                       <FaInfoCircle className="w-3 h-3 mr-1" />
                       Leave empty to create a single section 'A' by default
                     </p>
-                  </div>
+          </div>
 
-                  <div>
+          <div>
                     <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                       <FaUsers className="w-4 h-4 text-red-500" />
                       <span>Students per Section</span>
-                    </label>
-                    <input
+            </label>
+            <input
                       {...register('studentsPerSection', {
                         min: { value: 1, message: 'Must be at least 1 student' },
                         max: { value: 100, message: 'Cannot exceed 100 students per section' }
                       })}
-                      type="number"
+              type="number"
                       min="1"
                       max="100"
                       className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-200 ${
@@ -208,8 +208,8 @@ function AddClassModal({ isOpen, onClose }) {
                       <div className="font-semibold text-red-600">Total Students</div>
                       <div className="text-2xl font-bold text-red-700">{getTotalStudents()}</div>
                     </div>
-                  </div>
-                  
+          </div>
+
                   {watchedValues.sections?.trim() && (
                     <div className="mt-4 pt-4 border-t border-red-200">
                       <h5 className="text-sm font-medium text-red-700 mb-2">Sections to be created:</h5>
@@ -246,7 +246,7 @@ function AddClassModal({ isOpen, onClose }) {
                 <FaSave className="w-4 h-4" />
                 <span>{isSubmitting ? 'Adding...' : 'Add Class'}</span>
               </button>
-            </div>
+          </div>
           </div>
         </form>
       </div>

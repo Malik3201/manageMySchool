@@ -86,7 +86,7 @@ function AddTeacherModal({ isOpen, onClose }) {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
-      const teacherData = {
+    const teacherData = {
         ...data,
         assignedClasses: selectedClasses,
         subjects: selectedSubjects,
@@ -94,7 +94,7 @@ function AddTeacherModal({ isOpen, onClose }) {
       };
       
       await dispatch(addTeacher(teacherData));
-      onClose();
+    onClose();
       reset();
       setSelectedClasses([]);
       setSelectedSubjects([]);
@@ -145,7 +145,7 @@ function AddTeacherModal({ isOpen, onClose }) {
                         <FaUser className="w-4 h-4 text-red-500" />
                         <span>Full Name *</span>
                       </label>
-                      <input
+            <input
                         {...register('name', { 
                           required: 'Full name is required',
                           minLength: { value: 2, message: 'Name must be at least 2 characters' }
@@ -171,7 +171,7 @@ function AddTeacherModal({ isOpen, onClose }) {
                         <FaEnvelope className="w-4 h-4 text-red-500" />
                         <span>Email Address *</span>
                       </label>
-                      <input
+            <input
                         {...register('email', { 
                           required: 'Email is required',
                           pattern: {
@@ -179,7 +179,7 @@ function AddTeacherModal({ isOpen, onClose }) {
                             message: 'Please enter a valid email address'
                           }
                         })}
-                        type="email"
+              type="email"
                         className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 transition-all duration-200 ${
                           errors.email 
                             ? 'border-red-300 focus:ring-red-500 focus:border-red-500' 
@@ -193,14 +193,14 @@ function AddTeacherModal({ isOpen, onClose }) {
                           {errors.email.message}
                         </p>
                       )}
-                    </div>
-
+          </div>
+          
                     <div>
                       <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                         <FaPhone className="w-4 h-4 text-red-500" />
                         <span>Phone Number *</span>
                       </label>
-                      <input
+          <input
                         {...register('phone', { 
                           required: 'Phone number is required',
                           pattern: {
@@ -228,7 +228,7 @@ function AddTeacherModal({ isOpen, onClose }) {
                       <label className="flex items-center space-x-2 text-sm font-medium text-gray-700 mb-2">
                         <FaUser className="w-4 h-4 text-red-500" />
                         <span>Profile Image URL</span>
-                      </label>
+              </label>
                       <input
                         {...register('profileImage')}
                         type="url"
@@ -238,8 +238,8 @@ function AddTeacherModal({ isOpen, onClose }) {
                       <p className="mt-1 text-xs text-gray-500">Optional: Provide a URL for the teacher's profile picture</p>
                     </div>
                   </div>
-                </div>
-
+            </div>
+            
                 <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
                   <div className="bg-gray-50 px-6 py-3 border-b border-gray-200 rounded-t-xl">
                     <h3 className="font-semibold text-gray-900 flex items-center">
@@ -288,16 +288,16 @@ function AddTeacherModal({ isOpen, onClose }) {
                     <div className="mb-4">
                       <div className="relative">
                         <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                        <input
-                          type="text"
-                          placeholder="Search classes..."
-                          value={searchTerm}
-                          onChange={(e) => setSearchTerm(e.target.value)}
+              <input
+                type="text"
+                placeholder="Search classes..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                           className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                         />
-                      </div>
-                    </div>
-
+                </div>
+              </div>
+              
                     <div className="max-h-80 overflow-y-auto space-y-1 scrollbar-red-light">
                       {filteredClasses.length > 0 ? (
                         filteredClasses.map((className) => (
@@ -343,10 +343,10 @@ function AddTeacherModal({ isOpen, onClose }) {
                               >
                                 ×
                               </button>
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                                  </span>
+                              ))}
+                            </div>
+                          </div>
                     )}
                   </div>
                 </div>
@@ -361,7 +361,7 @@ function AddTeacherModal({ isOpen, onClose }) {
                 onClick={onClose}
                 className="px-6 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
               >
-                Cancel
+              Cancel
               </button>
               <button
                 type="submit"

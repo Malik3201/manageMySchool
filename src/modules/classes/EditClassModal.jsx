@@ -65,10 +65,10 @@ function EditClassModal({ isOpen, onClose, classData }) {
     const studentCount = parseInt(count) || 0;
     setSections(prev => prev.map((section, i) => {
       if (i === index) {
-        const currentStudents = section.students || [];
+          const currentStudents = section.students || [];
         if (studentCount > currentStudents.length) {
           const baseId = Date.now() + (index * 1000);
-          const additionalStudents = Array.from(
+            const additionalStudents = Array.from(
             { length: studentCount - currentStudents.length }, 
             (_, j) => baseId + currentStudents.length + j
           );
@@ -142,7 +142,7 @@ function EditClassModal({ isOpen, onClose, classData }) {
                       <FaSchool className="w-4 h-4 text-red-500" />
                       <span>Class Name *</span>
                     </label>
-                    <input
+          <input
                       {...register('className', {
                         required: 'Class name is required',
                         minLength: { value: 1, message: 'Class name must be at least 1 character' }
@@ -192,23 +192,23 @@ function EditClassModal({ isOpen, onClose, classData }) {
                               <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Section Name
                               </label>
-                              <input
-                                type="text"
+              <input
+                type="text"
                                 value={section.section || ''}
                                 onChange={(e) => updateSectionName(index, e.target.value)}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                                 placeholder="Section A"
                               />
-                            </div>
+            </div>
                             <div>
                               <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Student Count
                               </label>
-                              <input
-                                type="number"
-                                min="0"
+                      <input
+                        type="number"
+                        min="0"
                                 max="100"
-                                value={section.students?.length || 0}
+                        value={section.students?.length || 0}
                                 onChange={(e) => updateStudentCount(index, e.target.value)}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                               />
@@ -241,8 +241,8 @@ function EditClassModal({ isOpen, onClose, classData }) {
                     </div>
                   )}
                 </div>
-              </div>
-
+                    </div>
+                    
               <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-xl border border-red-200 p-6">
                 <div className="text-center">
                   <FaSchool className="w-12 h-12 text-red-500 mx-auto mb-3" />
@@ -271,7 +271,7 @@ function EditClassModal({ isOpen, onClose, classData }) {
                     </div>
                   )}
                 </div>
-              </div>
+            </div>
             </div>
           </div>
 
@@ -282,7 +282,7 @@ function EditClassModal({ isOpen, onClose, classData }) {
                 onClick={onClose}
                 className="px-6 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium transition-all duration-200"
               >
-                Cancel
+              Cancel
               </button>
               <button
                 type="submit"

@@ -49,13 +49,13 @@ const DailyReport = () => {
       item.records.map(rec => {
         const student = students.find(s => s.id === rec.studentId);
         return {
-          class: item.class,
-          section: item.section,
-          studentId: rec.studentId,
+        class: item.class,
+        section: item.section,
+        studentId: rec.studentId,
           studentName: student ? student.name : 'Unknown Student',
           rollNumber: student ? student.rollNumber : 'N/A',
           profileImage: student ? student.profileImage : null,
-          status: rec.status
+        status: rec.status
         };
       })
     );
@@ -218,41 +218,41 @@ const DailyReport = () => {
                   <FaCalendarAlt className="inline w-4 h-4 mr-1" />
                   Date
                 </label>
-                <input
-                  type="date"
-                  value={selectedDate}
-                  onChange={e => setSelectedDate(e.target.value)}
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={e => setSelectedDate(e.target.value)}
                   className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:bg-opacity-30"
-                />
+        />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-white mb-2">Class</label>
-                <select
-                  value={selectedClass}
-                  onChange={e => setSelectedClass(e.target.value)}
+        <select
+          value={selectedClass}
+          onChange={e => setSelectedClass(e.target.value)}
                   className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:bg-opacity-30"
                 >
                   <option value="" className="text-gray-700">All Classes</option>
                   {getUniqueClasses().map(cls => (
                     <option key={cls} value={cls} className="text-gray-700">{cls}</option>
-                  ))}
-                </select>
+          ))}
+        </select>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-white mb-2">Section</label>
-                <select
-                  value={selectedSection}
-                  onChange={e => setSelectedSection(e.target.value)}
+        <select
+          value={selectedSection}
+          onChange={e => setSelectedSection(e.target.value)}
                   className="w-full px-3 py-2 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg text-white focus:outline-none focus:bg-opacity-30"
                 >
                   <option value="" className="text-gray-700">All Sections</option>
                   {getUniqueSections().map(sec => (
                     <option key={sec} value={sec} className="text-gray-700">{sec}</option>
-                  ))}
-                </select>
-              </div>
+          ))}
+        </select>
+      </div>
 
               <div className="flex items-end">
                 <button
@@ -340,7 +340,7 @@ const DailyReport = () => {
           </div>
           
           <div className="p-6">
-            <Table columns={columns} data={reportRows} />
+      <Table columns={columns} data={reportRows} />
           </div>
         </div>
       ) : selectedDate ? (
