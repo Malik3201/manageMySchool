@@ -174,7 +174,7 @@ const FeesManagement = () => {
       width: '20%',
       render: (student) => (
         <div className="text-center">
-          <div className="font-semibold text-gray-900 text-sm sm:text-base">₹{feeAmount.toLocaleString()}</div>
+          <div className="font-semibold text-gray-900 text-sm sm:text-base">Rs. {feeAmount.toLocaleString()}</div>
           <div className="text-xs text-gray-500">{feesMonth}</div>
         </div>
       )
@@ -355,7 +355,7 @@ const FeesManagement = () => {
 
           {selectedClass && selectedSection && (
             <div className="p-6 space-y-6">
-              <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between">
                     <div>
@@ -380,26 +380,28 @@ const FeesManagement = () => {
                   </div>
                 </div>
 
+                
+
+                <div className="md:col-span-1 col-span-2 bg-white rounded-xl p-4 sm:p-2 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-between md:p-4 ">
+                    <div>
+                      <p className="text-sm font-medium text-gray-600">Collected</p>
+                      <p className="text-xl sm:text-2xl font-bold text-green-600">Rs.{stats.paidAmount.toLocaleString()}</p>
+                    </div>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                      <FaDollarSign className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                  </div>
+                </div>
+
                 <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between ">
                     <div>
                       <p className="text-sm font-medium text-gray-600">Fees Due</p>
                       <p className="text-xl sm:text-2xl font-bold text-red-600">{stats.unpaid}</p>
                     </div>
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
                       <FaExclamationTriangle className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className=" bg-white rounded-xl p-4 sm:p-2 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-gray-600">Collected</p>
-                      <p className="text-xl sm:text-2xl font-bold text-green-600">₹{stats.paidAmount.toLocaleString()}</p>
-                    </div>
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
-                      <FaDollarSign className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                     </div>
                   </div>
                 </div>
@@ -430,11 +432,11 @@ const FeesManagement = () => {
                     />
                   </div>
                 </div>
-                <div className="flex gap-2 flex-wrap">
+                <div className="grid lg:grid-cols-3 grid-cols-2 gap-2">
                   <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
+                    className="col-span-2 lg:col-span-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
                   >
                     <option value="all">All Status</option>
                     <option value="Paid">Paid Only</option>
