@@ -218,19 +218,20 @@ VITE_AUTH_PROVIDER=
 * **Dashboards:** Admin, Teacher, Student, Parent
 * **Student Management:** List/Add/Edit/View students (CRUD with JSON)
 * **Timetable Management:** Weekly class timetable
+* **Results:**  input marks, generate report card
 * **Settings/Profile:** Edit profile + change password
-* **Responsive Design:** Make all pages responsive
-* **Utilities:** JSON fetcher, formatters, etc.
+
 
 **Developer 2 — Abdul Rehman (Functional Pages, Teachers, Reports)**
 
 * **Teacher Management:** List/Add/View teachers + Assign classes
 * **Class & Section Mgmt:** View classes/sections + assign teachers
 * **Attendance Mgmt:** Mark attendance, View reports
-* **Exams & Results:** Add exam, input marks, generate report card
 * **Fees Mgmt:** View fees, generate mock receipt
 * **Announcements/Notice Board:** Post/view notices
-* **Reports Page:** Attendance, result, fees summaries
+* **Responsive Design:** Make all pages responsive
+* **Utilities:** JSON fetcher, formatters, etc.
+* **Reports Page:** Attendance, result, fees summaries, Add exam,
 * **Dummy JSON Data:** Add seed data in `students.json`, `fees.json`, etc.
 
 ---
