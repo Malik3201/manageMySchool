@@ -325,7 +325,7 @@ const FeesManagement = () => {
                     />
                   </div>
 
-                  <div className="lg:mt-7">
+                  <div className="lg:mt-7 col-span-2">
                     <button
                       type="submit"
                       disabled={isSubmitting || !selectedClass || !selectedSection}

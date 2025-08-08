@@ -54,7 +54,7 @@ function NoticeModel({ notice, date, time, type }) {
         </span>
         <span className="text-xs font-bold text-white uppercase tracking-wide">
           {config.label}
-        </span>
+  </span>
       </div>
 
       <div className="mb-4">
@@ -62,8 +62,8 @@ function NoticeModel({ notice, date, time, type }) {
           text-lg font-semibold leading-relaxed break-words
           ${config.textColor}
         `}>
-          {notice}
-        </p>
+    {notice}
+  </p>
       </div>
 
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 pt-4 border-t border-gray-200">
@@ -75,8 +75,8 @@ function NoticeModel({ notice, date, time, type }) {
         <div className="flex items-center space-x-2 text-gray-600">
           <FaClock className="w-4 h-4" />
           <span className="text-sm font-medium">{time}</span>
-        </div>
-      </div>
+  </div>
+</div>
 
       <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-white opacity-20"></div>
       <div className="absolute bottom-4 right-4 w-3 h-3 rounded-full bg-white opacity-10"></div>
