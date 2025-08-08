@@ -23,6 +23,43 @@ const Settings = () => {
     }
   });
 
+  const getRoleTheme = () => {
+    switch (currentUserRole) {
+      case 'admin': return {
+        primary: 'from-red-500 to-red-600',
+        accent: 'text-red-500',
+        focus: 'peer-focus:ring-red-300',
+        checked: 'peer-checked:bg-red-500'
+      };
+      case 'teacher': return {
+        primary: 'from-blue-500 to-blue-600',
+        accent: 'text-blue-500',
+        focus: 'peer-focus:ring-blue-300',
+        checked: 'peer-checked:bg-blue-500'
+      };
+      case 'student': return {
+        primary: 'from-green-500 to-green-600',
+        accent: 'text-green-500',
+        focus: '${theme.focus}',
+        checked: '${theme.checked}'
+      };
+      case 'parent': return {
+        primary: 'from-purple-500 to-purple-600',
+        accent: 'text-purple-500',
+        focus: 'peer-focus:ring-purple-300',
+        checked: 'peer-checked:bg-purple-500'
+      };
+      default: return {
+        primary: 'from-gray-500 to-gray-600',
+        accent: 'text-gray-500',
+        focus: 'peer-focus:ring-gray-300',
+        checked: 'peer-checked:bg-gray-500'
+      };
+    }
+  };
+
+  const theme = getRoleTheme();
+
   useEffect(() => {
     const filterUser = async () => {
       setLoading(true);
@@ -71,7 +108,7 @@ const Settings = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center min-h-64">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg mb-4 animate-pulse">
+              <div className={`w-16 h-16 bg-gradient-to-r ${theme.primary} rounded-full flex items-center justify-center shadow-lg mb-4 animate-pulse`}>
                 <FaSpinner className="w-8 h-8 text-white animate-spin" />
               </div>
               <p className="text-gray-700 font-medium">Loading settings...</p>
@@ -87,7 +124,7 @@ const Settings = () => {
       <div className="max-w-7xl mx-auto space-y-4 xs:space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 xs:gap-4">
           <div className="flex items-center space-x-2 xs:space-x-3">
-            <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg">
+            <div className={`w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${theme.primary} rounded-full flex items-center justify-center shadow-lg`}>
               <FaCog className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
@@ -98,8 +135,8 @@ const Settings = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-red-500 to-red-600">
-            <div className="flex overflow-x-auto scrollbar-thin scrollbar-thumb-red-400 scrollbar-track-red-200">
+          <div className={`bg-gradient-to-r ${theme.primary}`}>
+            <div className="flex overflow-x-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-200">
               {tabs.map((tab) => {
                 const TabIcon = tab.icon;
   return (
@@ -124,7 +161,7 @@ const Settings = () => {
             {activeTab === "profile" && (
               <div className="space-y-4 xs:space-y-6">
                 <div className="flex items-center space-x-2 xs:space-x-3 mb-4 xs:mb-6">
-                  <FaUser className="w-4 h-4 xs:w-5 xs:h-5 text-red-500" />
+                  <FaUser className={`w-4 h-4 xs:w-5 xs:h-5 ${theme.accent}`} />
                   <h2 className="text-lg xs:text-xl font-semibold text-gray-900">Profile Information</h2>
                 </div>
       <ProfileCard data={data} role={currentUserRole} />
@@ -134,7 +171,7 @@ const Settings = () => {
             {activeTab === "security" && (
               <div className="space-y-4 xs:space-y-6">
                 <div className="flex items-center space-x-2 xs:space-x-3 mb-4 xs:mb-6">
-                  <FaShieldAlt className="w-4 h-4 xs:w-5 xs:h-5 text-red-500" />
+                  <FaShieldAlt className={`w-4 h-4 xs:w-5 xs:h-5 ${theme.accent}`} />
                   <h2 className="text-lg xs:text-xl font-semibold text-gray-900">Security Settings</h2>
                 </div>
                 
@@ -173,7 +210,7 @@ const Settings = () => {
             {activeTab === "notifications" && (
               <div className="space-y-4 xs:space-y-6">
                 <div className="flex items-center space-x-2 xs:space-x-3 mb-4 xs:mb-6">
-                  <FaBell className="w-4 h-4 xs:w-5 xs:h-5 text-red-500" />
+                  <FaBell className={`w-4 h-4 xs:w-5 xs:h-5 ${theme.accent}`} />
                   <h2 className="text-lg xs:text-xl font-semibold text-gray-900">Notification Preferences</h2>
                 </div>
 
@@ -190,7 +227,7 @@ const Settings = () => {
                         checked={settings.notifications.email}
                         onChange={(e) => handleSettingsChange('notifications', 'email', e.target.checked)}
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-500"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 ${theme.focus} rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${theme.checked}"></div>
                     </label>
                   </div>
 
@@ -206,7 +243,7 @@ const Settings = () => {
                         checked={settings.notifications.push}
                         onChange={(e) => handleSettingsChange('notifications', 'push', e.target.checked)}
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-500"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 ${theme.focus} rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${theme.checked}"></div>
                     </label>
                   </div>
 
@@ -222,7 +259,7 @@ const Settings = () => {
                         checked={settings.notifications.sms}
                         onChange={(e) => handleSettingsChange('notifications', 'sms', e.target.checked)}
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-500"></div>
+                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 ${theme.focus} rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${theme.checked}"></div>
                     </label>
                   </div>
                 </div>

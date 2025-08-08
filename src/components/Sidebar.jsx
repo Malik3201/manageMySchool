@@ -104,8 +104,8 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
           },
           { name: "Fees", path: `/${getUserRole}-dashboard/fees` },
           {
-            name: "Student-Attendance",
-            path: `/${getUserRole}-dashboard/attendance/student-attendance`,
+            name: "Children-Attendance",
+            path: `/${getUserRole}-dashboard/attendance/children-attendance`,
           },
           { name: "Reports", path: `/${getUserRole}-dashboard/reports` },
           { name: "Timetable", path: `/${getUserRole}-dashboard/time-table` },

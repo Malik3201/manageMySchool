@@ -25,6 +25,7 @@ import {
 
 const CreateReport = () => {
   const currentUserId = JSON.parse(localStorage.getItem("userId"));
+  const currentUserRole = JSON.parse(localStorage.getItem("userRole"));
   const [teacher, setTeacher] = useState(null);
   const [students, setStudents] = useState([]);
   const [subjects, setSubjects] = useState([]);
@@ -37,6 +38,37 @@ const CreateReport = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [examType, setExamType] = useState("Final Exam");
   const [totalMarks, setTotalMarks] = useState(100);
+
+  const getRoleTheme = () => {
+    switch (currentUserRole) {
+      case 'admin': return {
+        primary: 'from-red-500 to-red-600',
+        accent: 'text-red-500',
+        hover: 'hover:bg-red-600',
+        bg: 'bg-red-500',
+        light: 'text-red-200',
+        textPrimary: 'text-red-600'
+      };
+      case 'teacher': return {
+        primary: 'from-blue-500 to-blue-600',
+        accent: 'text-blue-500',
+        hover: 'hover:bg-blue-600',
+        bg: 'bg-blue-500',
+        light: 'text-blue-200',
+        textPrimary: 'text-blue-600'
+      };
+      default: return {
+        primary: 'from-red-500 to-red-600',
+        accent: 'text-red-500',
+        hover: 'hover:bg-red-600',
+        bg: 'bg-red-500',
+        light: 'text-red-200',
+        textPrimary: 'text-red-600'
+      };
+    }
+  };
+
+  const theme = getRoleTheme();
 
   const {
     register,
@@ -133,7 +165,7 @@ const CreateReport = () => {
       width: '30%',
       render: (student) => (
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center text-white font-medium text-sm">
+          <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r ${theme.primary} rounded-full flex items-center justify-center text-white font-medium text-sm`}>
             {student.name?.charAt(0)?.toUpperCase() || 'S'}
           </div>
           <div>
@@ -188,11 +220,11 @@ const CreateReport = () => {
       render: (student) => (
         <div className="flex flex-wrap gap-1 sm:gap-2 justify-center">
           <button
-            onClick={() => {
+        onClick={() => {
               setSelectedStudent(student);
-              setIsModalOpen(true);
-            }}
-            className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-all duration-200 flex items-center space-x-1"
+          setIsModalOpen(true);
+        }}
+            className={`px-2 sm:px-3 py-1 text-xs sm:text-sm ${theme.bg} ${theme.hover} text-white rounded-lg font-medium transition-all duration-200 flex items-center space-x-1`}
           >
             <FaEdit className="w-3 h-3" />
             <span>Update</span>
@@ -244,15 +276,15 @@ const CreateReport = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center min-h-64">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg mb-4 animate-pulse">
+              <div className={`w-16 h-16 bg-gradient-to-r ${theme.primary} rounded-full flex items-center justify-center shadow-lg mb-4 animate-pulse`}>
                 <FaFileAlt className="w-8 h-8 text-white" />
               </div>
               <p className="text-gray-700 font-medium">Loading report creation...</p>
             </div>
           </div>
         </div>
-      </div>
-    );
+    </div>
+  );
   }
 
   return (
@@ -260,7 +292,7 @@ const CreateReport = () => {
       <div className="max-w-7xl mx-auto space-y-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center shadow-lg">
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${theme.primary} rounded-full flex items-center justify-center shadow-lg`}>
               <FaFileAlt className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
@@ -271,7 +303,7 @@ const CreateReport = () => {
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-red-500 to-red-600 px-4 sm:px-6 py-4">
+          <div className={`bg-gradient-to-r ${theme.primary} px-4 sm:px-6 py-4`}>
             <div className="flex items-center space-x-2 sm:space-x-3">
               <FaFilter className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
               <h2 className="text-lg sm:text-xl font-semibold text-white">Report Configuration</h2>
@@ -279,53 +311,53 @@ const CreateReport = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} className="mt-4 pt-4 border-t border-white border-opacity-30">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                <div>
+          <div>
                   <label className="block text-sm font-medium text-white mb-2">
                     <FaBook className="inline w-3 h-3 mr-1" />
-                    Subject
-                  </label>
-                  <select
+              Subject
+            </label>
+            <select
                     {...register("subject", { required: "Subject is required" })}
                     className="w-full px-3 py-2.5 text-sm rounded-lg border border-white border-opacity-30 bg-white bg-opacity-20 text-white focus:outline-none focus:bg-opacity-30"
-                  >
+            >
                     <option value="" className="text-gray-900">Select Subject</option>
-                    {subjects.map((sub, indx) => (
+              {subjects.map((sub, indx) => (
                       <option key={indx} value={sub} className="text-gray-900">
-                        {sub}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.subject && (
-                    <p className="text-sm text-red-200 mt-1 flex items-center">
+                  {sub}
+                </option>
+              ))}
+            </select>
+            {errors.subject && (
+                    <p className={`text-sm ${theme.light} mt-1 flex items-center`}>
                       <FaExclamationCircle className="w-3 h-3 mr-1" />
-                      {errors.subject.message}
-                    </p>
-                  )}
-                </div>
+                {errors.subject.message}
+              </p>
+            )}
+          </div>
 
-                <div>
+          <div>
                   <label className="block text-sm font-medium text-white mb-2">
                     <FaGraduationCap className="inline w-3 h-3 mr-1" />
-                    Class
-                  </label>
-                  <select
+              Class
+            </label>
+            <select
                     {...register("class", { required: "Class is required" })}
                     className="w-full px-3 py-2.5 text-sm rounded-lg border border-white border-opacity-30 bg-white bg-opacity-20 text-white focus:outline-none focus:bg-opacity-30"
-                  >
+            >
                     <option value="" className="text-gray-900">Select Class</option>
-                    {classes.map((cls, indx) => (
+              {classes.map((cls, indx) => (
                       <option key={indx} value={cls} className="text-gray-900">
-                        {cls}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.class && (
-                    <p className="text-sm text-red-200 mt-1 flex items-center">
+                  {cls}
+                </option>
+              ))}
+            </select>
+            {errors.class && (
+                    <p className={`text-sm ${theme.light} mt-1 flex items-center`}>
                       <FaExclamationCircle className="w-3 h-3 mr-1" />
-                      {errors.class.message}
-                    </p>
-                  )}
-                </div>
+                {errors.class.message}
+              </p>
+            )}
+          </div>
 
                 <div>
                   <label className="block text-sm font-medium text-white mb-2">
@@ -358,13 +390,13 @@ const CreateReport = () => {
                     className="w-full px-3 py-2.5 text-sm rounded-lg border border-white border-opacity-30 bg-white bg-opacity-20 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:bg-opacity-30"
                     placeholder="100"
                   />
-                </div>
+        </div>
 
                 <div className="flex items-end">
                   <button
                     type="submit"
                     disabled={isSubmitting || !selectedSubject || !selectedClass}
-                    className={`w-full bg-white text-red-600 px-4 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
+                    className={`w-full bg-white ${theme.textPrimary} px-4 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2 ${
                       isSubmitting || !selectedSubject || !selectedClass
                         ? 'opacity-50 cursor-not-allowed'
                         : 'hover:bg-gray-100 shadow-lg hover:shadow-xl'
@@ -384,7 +416,7 @@ const CreateReport = () => {
                   </button>
                 </div>
               </div>
-            </form>
+      </form>
           </div>
 
           {filteredStudents.length > 0 && (
@@ -430,9 +462,9 @@ const CreateReport = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-gray-600">A+ Grades</p>
-                      <p className="text-xl sm:text-2xl font-bold text-red-600">{stats.excellent}</p>
+                      <p className={`text-xl sm:text-2xl font-bold ${theme.textPrimary}`}>{stats.excellent}</p>
                     </div>
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${theme.primary} rounded-full flex items-center justify-center`}>
                       <FaGraduationCap className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                     </div>
                   </div>

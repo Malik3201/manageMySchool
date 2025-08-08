@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import ParentTimeTable from "../ParentTimeTable";
 import Settings from "../Settings";
-import ViewChildAttendance from "../../TeacherModules/ViewChildAttendance";
+import ChildrenAttendance from "../../ParentModule/ChildrenAttendance";
 import ParentReport from "../ParentReport";
 import ChildFees from "../../ParentModule/ChildFees";
 import ParentNoticeBoard from "../../ParentModule/ParentNoticeBoard";
@@ -51,7 +51,7 @@ const ParentDashboard = () => {
               <Route index element={<Navigate to="notice-board" replace />} />
               <Route path="notice-board" element={<ParentNoticeBoard />} />
               <Route path="fees" element={<ChildFees />} />
-              <Route path="attendance/student-attendance" element={<ViewChildAttendance />} />
+              <Route path="attendance/children-attendance" element={<ChildrenAttendance />} />
               <Route path="reports" element={<ParentReport />} />
               <Route path="time-table" element={<ParentTimeTable />} />
               <Route path="settings" element={<Settings />} />
