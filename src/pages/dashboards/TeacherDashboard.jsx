@@ -7,6 +7,7 @@ import TeacherNoticeBoard from "../../TeacherModules/TeacherNoticeBoard";
 import TeacherExam from "../../TeacherModules/TeacherExam";
 import ClassAttendance from "../../TeacherModules/ClassAttendance";
 import CreateReport from "../CreateReport";
+import TeacherStats from "../../TeacherModules/TeacherStats";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBell, FaUser } from "react-icons/fa";
@@ -48,12 +49,13 @@ const TeacherDashboard = () => {
         <main className="flex-1 overflow-auto bg-gray-50">
           <div className="p-2 sm:p-4 lg:p-6">
             <Routes>
-              <Route index element={<Navigate to="notice-board" replace />} />
+              <Route index element={<Navigate to="stats" replace />} />
               <Route path="notice-board" element={<TeacherNoticeBoard />} />
               <Route path="classes" element={<ClassAttendance />} />
               <Route path="exams" element={<TeacherExam />} />
               <Route path="reports" element={<CreateReport />} />
               <Route path="time-table" element={<TeachersTimetable />} />
+              <Route path="stats" element={<TeacherStats />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
           </div>

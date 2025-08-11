@@ -48,6 +48,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
     switch (getUserRole) {
       case "admin":
         return [
+          { name: "Stats", path: `/${getUserRole}-dashboard/stats` },
           {
             name: "Notice Board",
             path: `/${getUserRole}-dashboard/notice-board`,
@@ -71,6 +72,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         ];
       case "teacher":
         return [
+          { name: "Stats", path: `/${getUserRole}-dashboard/stats` },
           {
             name: "Notice Board",
             path: `/${getUserRole}-dashboard/notice-board`,
@@ -83,6 +85,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         ];
       case "student":
         return [
+          { name: "Stats", path: `/${getUserRole}-dashboard/stats` },
           {
             name: "Notice Board",
             path: `/${getUserRole}-dashboard/notice-board`,
@@ -98,6 +101,7 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         ];
       case "parent":
         return [
+          { name: "Stats", path: `/${getUserRole}-dashboard/stats` },
           {
             name: "Notice Board",
             path: `/${getUserRole}-dashboard/notice-board`,

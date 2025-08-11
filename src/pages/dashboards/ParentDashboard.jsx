@@ -7,6 +7,7 @@ import ChildrenAttendance from "../../ParentModule/ChildrenAttendance";
 import ParentReport from "../ParentReport";
 import ChildFees from "../../ParentModule/ChildFees";
 import ParentNoticeBoard from "../../ParentModule/ParentNoticeBoard";
+import ParentStats from "../../ParentModule/ParentStats";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBell, FaUser } from "react-icons/fa";
@@ -48,12 +49,13 @@ const ParentDashboard = () => {
         <main className="flex-1 overflow-auto bg-gray-50">
           <div className="p-2 sm:p-4 lg:p-6">
             <Routes>
-              <Route index element={<Navigate to="notice-board" replace />} />
+              <Route index element={<Navigate to="stats" replace />} />
               <Route path="notice-board" element={<ParentNoticeBoard />} />
               <Route path="fees" element={<ChildFees />} />
               <Route path="attendance/children-attendance" element={<ChildrenAttendance />} />
               <Route path="reports" element={<ParentReport />} />
               <Route path="time-table" element={<ParentTimeTable />} />
+              <Route path="stats" element={<ParentStats />} />
               <Route path="settings" element={<Settings />} />
             </Routes>
           </div>

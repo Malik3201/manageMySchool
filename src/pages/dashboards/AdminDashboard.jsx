@@ -11,6 +11,7 @@ import StudentAttendance from "../../modules/Attendance/StudentAttendance";
 import FeesManagement from "../../modules/Fees/FeesManagement";
 import ExamsManagement from "../../modules/Exams/ExamsManagement";
 import Settings from "../Settings";
+import AdminStats from "../../AdminModules/AdminStats";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBell, FaUser } from "react-icons/fa";
@@ -52,7 +53,7 @@ const AdminDashboard = () => {
         <main className="flex-1 overflow-auto bg-gray-50">
           <div className="p-2 sm:p-4 lg:p-6">
             <Routes>
-              <Route index element={<Navigate to="notice-board" replace />} />
+              <Route index element={<Navigate to="stats" replace />} />
               <Route path="students" element={<StudentManagement />} />
               <Route path="teachers" element={<TeacherManagement />} />
               <Route path="classes" element={<ClassManagement />} />
@@ -69,6 +70,7 @@ const AdminDashboard = () => {
               <Route path="fees" element={<FeesManagement />} />
               <Route path="reports" element={<Reports />} />
               <Route path="time-table" element={<TimeTableSection />} />
+              <Route path="stats" element={<AdminStats />} />
               <Route path="settings" element={<Settings />} />
               <Route path="notice-board" element={<NoticeBoard />} />
             </Routes>
