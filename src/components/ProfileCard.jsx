@@ -72,35 +72,45 @@ const ProfileCard = ({ role, data }) => {
   );
 
   const PasswordField = () => (
-    <div className="space-y-3">
-      <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
-        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0 mt-0.5">
-          <FaKey className="w-4 h-4 text-gray-600" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Password</p>
-          <div className="flex items-center space-x-2 mt-1">
-            <p className="text-sm font-medium text-gray-900 font-mono">
-              {showPassword ? currentPass : "••••••••"}
-            </p>
-            <button
-              onClick={() => setShowPassword(!showPassword)}
-              className="p-1 text-gray-500 hover:text-gray-700 transition-colors duration-200"
-            >
-              {showPassword ? <FaEyeSlash className="w-3 h-3" /> : <FaEye className="w-3 h-3" />}
+  <div className="space-y-3">
+    
+    <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+      <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0 mt-0.5">
+        <FaKey className="w-4 h-4 text-gray-600" />
+      </div>
+
+      <div className="flex-1 min-w-0">
+        <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Password</p>
+
+        <div className="mt-1 flex items-center gap-2">
+          <span className="text-sm font-medium text-gray-900 font-mono flex-1 min-w-0 truncate">
+            {showPassword ? currentPass : "••••••••"}
+          </span>
+
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="ml-auto shrink-0 p-1 text-gray-500 hover:text-gray-700 transition-colors duration-200"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            aria-pressed={showPassword}
+          >
+            {showPassword ? <FaEyeSlash className="w-4 h-4" /> : <FaEye className="w-4 h-4" />}
           </button>
-          </div>
         </div>
       </div>
-      <button
-        onClick={() => setIsPassModalOpen(true)}
-        className="w-full px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-all duration-200 flex items-center justify-center space-x-2"
-      >
-        <FaKey className="w-4 h-4" />
-        <span>Change Password</span>
-        </button>
     </div>
-    );
+
+    
+    <button
+      type="button"
+      onClick={() => setIsPassModalOpen(true)}
+      className="w-full px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
+    >
+      <FaKey className="w-4 h-4" />
+      <span>Change Password</span>
+    </button>
+  </div>
+);
 
   const renderProfileDetails = () => {
     const commonFields = [
@@ -203,7 +213,7 @@ const ProfileCard = ({ role, data }) => {
         </div>
 
         <div className="p-4 xs:p-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 xs:gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-3 xs:gap-4">
             {renderProfileDetails()}
           </div>
 

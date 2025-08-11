@@ -129,7 +129,6 @@ const Settings = () => {
             </div>
             <div>
               <h1 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900">Settings</h1>
-              <p className="text-xs xs:text-sm text-gray-600">Manage your account and preferences</p>
             </div>
           </div>
         </div>
