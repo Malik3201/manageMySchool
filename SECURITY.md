@@ -15,7 +15,7 @@ We release updates as needed. Please ensure you are using the latest version of 
 
 If you discover a security vulnerability in this project, please **do not open a public issue**.
 
-Instead, report it privately by emailing us at **goodlooking698@gmail.com** with the following details:
+Instead, report it privately by emailing us at **Abdulrehmancs537@gmail.com** with the following details:
 - Description of the vulnerability
 - Steps to reproduce
 - Possible impact
