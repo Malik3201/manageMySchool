@@ -1,0 +1,152 @@
+[
+  {
+    "studentId": 104,
+    "studentName": "Adeel Ahmed",
+    "rollNumber": "6-A-01",
+    "class": "Class 6",
+    "section": "A",
+    "exam": "Final Exam 2025",
+    "subjects": [
+      {
+        "name": "English",
+        "marksObtained": 85,
+        "totalMarks": 100,
+        "grade": "A",
+        "teacherId": 1
+      },
+      {
+        "name": "Mathematics",
+        "marksObtained": 92,
+        "totalMarks": 100,
+        "grade": "A+",
+        "teacherId": 2
+      },
+      {
+        "name": "Science",
+        "marksObtained": 78,
+        "totalMarks": 100,
+        "grade": "B+",
+        "teacherId": 3
+      },
+      {
+        "name": "Urdu",
+        "marksObtained": 88,
+        "totalMarks": 100,
+        "grade": "A",
+        "teacherId": 5
+      },
+      {
+        "name": "Islamiat",
+        "marksObtained": 90,
+        "totalMarks": 100,
+        "grade": "A+",
+        "teacherId": 5
+      }
+    ],
+    "totalMarks": 500,
+    "obtainedMarks": 433,
+    "percentage": 86.6,
+    "grade": "A",
+    "remarks": "Excellent performance"
+  },
+  {
+    "studentId": 102,
+    "studentName": "Fatima Noor",
+    "rollNumber": "6-A-02",
+    "class": "Class 6",
+    "section": "A",
+    "exam": "Final Exam 2025",
+    "subjects": [
+      {
+        "name": "English",
+        "marksObtained": 72,
+        "totalMarks": 100,
+        "grade": "B",
+        "teacherId": 1
+      },
+      {
+        "name": "Mathematics",
+        "marksObtained": 65,
+        "totalMarks": 100,
+        "grade": "C+",
+        "teacherId": 2
+      },
+      {
+        "name": "Science",
+        "marksObtained": 80,
+        "totalMarks": 100,
+        "grade": "B+",
+        "teacherId": 3
+      },
+      {
+        "name": "Urdu",
+        "marksObtained": 75,
+        "totalMarks": 100,
+        "grade": "B",
+        "teacherId": 5
+      },
+      {
+        "name": "Islamiat",
+        "marksObtained": 82,
+        "totalMarks": 100,
+        "grade": "B+",
+        "teacherId": 5
+      }
+    ],
+    "totalMarks": 500,
+    "obtainedMarks": 374,
+    "percentage": 74.8,
+    "grade": "B",
+    "remarks": "Good performance, can improve in Mathematics"
+  },
+  {
+    "studentId": 103,
+    "studentName": "Hamza Khan",
+    "rollNumber": "6-A-03",
+    "class": "Class 6",
+    "section": "A",
+    "exam": "Final Exam 2025",
+    "subjects": [
+      {
+        "name": "English",
+        "marksObtained": 60,
+        "totalMarks": 100,
+        "grade": "C",
+        "teacherId": 1
+      },
+      {
+        "name": "Mathematics",
+        "marksObtained": 58,
+        "totalMarks": 100,
+        "grade": "C",
+        "teacherId": 2
+      },
+      {
+        "name": "Science",
+        "marksObtained": 62,
+        "totalMarks": 100,
+        "grade": "C+",
+        "teacherId": 3
+      },
+      {
+        "name": "Urdu",
+        "marksObtained": 70,
+        "totalMarks": 100,
+        "grade": "B",
+        "teacherId": 5
+      },
+      {
+        "name": "Islamiat",
+        "marksObtained": 65,
+        "totalMarks": 100,
+        "grade": "C+",
+        "teacherId": 5
+      }
+    ],
+    "totalMarks": 500,
+    "obtainedMarks": 315,
+    "percentage": 63,
+    "grade": "C+",
+    "remarks": "Needs improvement, especially in Mathematics"
+  }
+]
